@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Authentication</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../assets/css/registration.css">
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../assets/js/validator.js"></script>
+    <script src="../assets/js/auth.js"></script>
+</head>
+
+<body onload="authOnLoad()">
+    <div class="container-fluid">
+        <div class="page-header">
+            <h1 class="text-center text-primary">Authentication</h1>
+        </div>
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a data-toggle="tab" href="#login">Login</a>
+            </li>
+            <li>
+                <a data-toggle="tab" href="#register">Register an account</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="login">
+                <div class="panel">
+                    <div class="panel-heading" id="login-panel-header">Log in</div>
+                    <div class="panel-body">
+                        <form class="well form-horizontal" data-toggle="validator" role="form" id="login_form" data-disable="false" onsubmit="login()">
+                            <div class="form-group">
+                                <label class="control-label col-xs-4" for="login-error"></label>
+                                <div class="col-xs-6">
+                                    <p class="form-control-static general-error" id="login-error"></p>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <label for="input-login-username" class="control-label col-xs-4">Username</label>
+                                <div class="col-xs-4">
+                                    <input type="text" class="form-control" id="input-login-username" placeholder="Username" data-error="Please enter your username"
+                                        required>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <label for="input-login-password" class="control-label col-xs-4">Password</label>
+                                <div class="col-xs-4">
+                                    <input type="password" class="form-control" id="input-login-password" placeholder="Password" data-error="Please enter your password"
+                                        required>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    <div class="help-block with-errors"></div>
+                                    <div class="help-block"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-4 col-xs-offset-4">
+                                    <button type="submit" class="btn btn-primary" id="login-submit">
+                                        <i class="fa fa-sign-in"></i> Login
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="register">
+                <div class="panel">
+                    <div class="panel-heading" id="registration-panel-header">Create a new account. A default session will be created with the succesfully created account. The new
+                        account will not be saved, so when the session expires, the account will no longer exist.</div>
+                    <div class="panel-body">
+                        <form class="well form-horizontal" data-toggle="validator" role="form" id="registration_form" data-disable="false" onsubmit="register()">
+                            <div class="form-group">
+                                <label class="control-label col-md-4" for="registration-error"></label>
+                                <div class="col-md-4">
+                                    <p class="form-control-static general-error" id="registration-error"></p>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <label class="control-label col-md-4">Title</label>
+                                <div class="col-md-4">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="salutation">Mr.</label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="salutation">Mrs.</label>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <label for="inputFirstName" class="control-label col-md-4">First name (*)</label>
+                                <div class="col-md-4">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="glyphicon glyphicon-user"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="inputFirstName" placeholder="First name" pattern="^[_A-z]{2,}$" maxlength="35"
+                                            data-minlength="2" data-error="Invalid input. Please enter between 2 and 35 letters"
+                                            required>
+                                    </div>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    <div class="help-block with-errors">Minimum of 2 characters</div>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <label for="inputLastName" class="control-label col-md-4">Last name (*)</label>
+                                <div class="col-md-4">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="glyphicon glyphicon-user"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="inputLastName" placeholder="Last name" pattern="^[_A-z]{2,}$" maxlength="35"
+                                            data-minlength="2" data-error="Invalid input. Please enter between 2 and 35 letters"
+                                            required>
+                                    </div>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    <div class="help-block with-errors">Minimum of 2 characters</div>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <label for="inputEmail" class="control-label col-md-4">Email (*)</label>
+                                <div class="col-md-4">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="glyphicon glyphicon-envelope"></i>
+                                        </div>
+                                        <input type="email" class="form-control" id="inputEmail" placeholder="Email" data-error="Invalid input. Please enter a valid email address"
+                                            required>
+                                    </div>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <label for="inputUsername" class="control-label col-md-4">Username (*)</label>
+                                <div class="col-md-4">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="glyphicon glyphicon-user"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="inputUsername" placeholder="Username" pattern="^[_A-z0-9]{4,}$" maxlength="35"
+                                            data-minlength="2" data-error="Invalid input. Please enter between 4 and 35 letters or numbers"
+                                            required>
+                                    </div>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    <div class="help-block with-errors">Minimum of 4 characters</div>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <label for="inputPassword" class="control-label col-md-4">Password (*)</label>
+                                <div class="col-md-4">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">?</div>
+                                        <input type="password" class="form-control" id="inputPassword" placeholder="Password" data-minlength="8" data-error="Invalid input. Please use a minimum of 8 characters"
+                                            required>
+                                    </div>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    <div class="help-block with-errors">Minimum of 8 characters</div>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <label for="inputPassword2" class="control-label col-md-4">Confirm password (*)</label>
+                                <div class="col-md-4">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">?</div>
+                                        <input type="password" class="form-control" id="inputPassword2" placeholder="Password" data-match="#inputPassword" data-match-error="The passwords don't match"
+                                            required data-error="Please confirm your password">
+                                    </div>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="bday" class="col-md-4 control-label">Date of birth</label>
+                                <div class="col-md-4">
+                                    <span class="input-group-btn">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="glyphicon glyphicon-list"></i>
+                                            </div>
+                                            <select class="form-control" id="bday">
+                                                <option value="0"></option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                                <option value="16">16</option>
+                                                <option value="17">17</option>
+                                                <option value="18">18</option>
+                                                <option value="19">19</option>
+                                                <option value="20">20</option>
+                                                <option value="21">21</option>
+                                                <option value="22">22</option>
+                                                <option value="23">23</option>
+                                                <option value="24">24</option>
+                                                <option value="25">25</option>
+                                                <option value="26">26</option>
+                                                <option value="27">27</option>
+                                                <option value="28">28</option>
+                                                <option value="29">29</option>
+                                                <option value="30">30</option>
+                                                <option value="31">31</option>
+                                            </select>
+                                        </div>
+                                    </span>
+                                    <span class="input-group-btn">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="glyphicon glyphicon-list"></i>
+                                            </div>
+                                            <select class="form-control" id="bmonth">
+                                                <option value="">
+                                                    <option value="1">Jan</option>
+                                                    <option value="2">Feb</option>
+                                                    <option value="3">Mar</option>
+                                                    <option value="4">Apr</option>
+                                                    <option value="5">May</option>
+                                                    <option value="6">Jun</option>
+                                                    <option value="7">Jul</option>
+                                                    <option value="8">Aug</option>
+                                                    <option value="9">Sep</option>
+                                                    <option value="10">Oct</option>
+                                                    <option value="11">Nov</option>
+                                                    <option value="12">Dec</option>
+                                            </select>
+                                        </div>
+                                    </span>
+                                    <span class="input-group-btn">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="glyphicon glyphicon-list"></i>
+                                            </div>
+                                            <select class="form-control" id="byear">
+                                                <option value="">
+                                                    <option value="1998">1998</option>
+                                                    <option value="1997">1997</option>
+                                                    <option value="1996">1996</option>
+                                                    <option value="1995">1995</option>
+                                                    <option value="1994">1994</option>
+                                                    <option value="1993">1993</option>
+                                                    <option value="1992">1992</option>
+                                                    <option value="1991">1991</option>
+                                                    <option value="1990">1990</option>
+                                                    <option value="1989">1989</option>
+                                                    <option value="1988">1988</option>
+                                                    <option value="1987">1987</option>
+                                                    <option value="1986">1986</option>
+                                                    <option value="1985">1985</option>
+                                                    <option value="1984">1984</option>
+                                                    <option value="1983">1983</option>
+                                                    <option value="1982">1982</option>
+                                                    <option value="1981">1981</option>
+                                                    <option value="1980">1980</option>
+                                                    <option value="1979">1979</option>
+                                                    <option value="1978">1978</option>
+                                                    <option value="1977">1977</option>
+                                                    <option value="1976">1976</option>
+                                                    <option value="1975">1975</option>
+                                                    <option value="1974">1974</option>
+                                                    <option value="1973">1973</option>
+                                                    <option value="1972">1972</option>
+                                                    <option value="1971">1971</option>
+                                                    <option value="1970">1970</option>
+                                            </select>
+                                        </div>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-4 col-xs-offset-4">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox">Subscribe to our newsletter</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-4 col-xs-offset-4">
+                                    <button type="submit" class="btn btn-primary" id="register-submit">
+                                        <i class="fa fa-user-plus"></i> Submit your registration
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

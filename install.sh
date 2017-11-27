@@ -5,4 +5,4 @@ serverpath=/var/www/html
 rsync -av --progress ./ $serverpath --exclude '.git' --exclude '.gitignore' --exclude 'install.sh'
 cd $serverpath
 npm install
-rm $serverpath/package.json
+rm $serverpath/package*.json

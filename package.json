@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/adimoldovan/web-stubs#readme",
   "dependencies": {
-    "bootswatch": "^4.0.0-beta.2",
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0",
     "jquery": "^3.2.1"
   }
 }
