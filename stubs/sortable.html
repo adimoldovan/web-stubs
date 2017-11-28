@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Draggable elements</title>
+    <link rel="stylesheet" href="../node_modules/jquery-ui-dist/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/jquery-ui-dist/jquery-ui.js"></script>
+    <style>
+        #sortable li {
+            margin: 3px;
+            float: left;
+            width: 100px;
+            height: 70px;
+            font-size: 3em;
+        }
+    </style>
+    <script>
+        $(function () {
+            $("#sortable").sortable();
+            $("#sortable").disableSelection();
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row text-center">
+            <div class="page-header">
+                <h1 class="text-primary">Draggable elements</h1>
+            </div>
+            <div class="text-center">
+                <ul id="sortable">
+                    <li class="label label-danger">1</li>
+                    <li class="label label-danger">4</li>
+                    <li class="label label-danger">3</li>
+                    <li class="label label-danger">5</li>
+                    <li class="label label-danger">2</li>
+                    <li class="label label-danger">8</li>
+                    <li class="label label-danger">7</li>
+                    <li class="label label-danger">6</li>
+                    <li class="label label-danger">12</li>
+                    <li class="label label-danger">10</li>
+                    <li class="label label-danger">11</li>
+                    <li class="label label-danger">9</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

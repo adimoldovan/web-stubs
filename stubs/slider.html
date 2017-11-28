@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Draggable elements</title>
+    <link rel="stylesheet" href="../node_modules/jquery-ui-dist/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/jquery-ui-dist/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#slider-range").slider({
+                range: true,
+                min: 0,
+                max: 1000,
+                values: [10, 750],
+                slide: function (event, ui) {
+                    $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+                }
+            });
+            $("#amount").val("$" + $("#slider-range").slider("values", 0) +
+                " - $" + $("#slider-range").slider("values", 1));
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container text-center">
+        <div class="page-header">
+            <h1 class="text-center text-primary">Draggable elements - slider</h1>
+        </div>
+        <div class="col">
+            <p>
+                <label for="amount">Price range:</label>
+                <input id="amount" readonly style="border:0; color:red; font-weight:bold;">
+            </p>
+            <div id="slider-range"></div>
+        </div>
+    </div>
+</body>
+
+</html>

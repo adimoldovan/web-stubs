@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>The crazy cookie</title>
@@ -7,22 +8,27 @@
     <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <script src="../node_modules/jquery/dist/jquery.js"></script>
     <script src="../assets/js/cookie.js"></script>
+    <link rel="stylesheet" href="../assets/css/common.css">
 </head>
+
 <body onload="loadCookieValue()">
 
-<div class="container container-table">
-    <div class="row vertical-center-row">
-        <div class="page-header">
-            <h1 class="text-center text-primary">The gibberish talking cookie</h1>
+    <div class="container container-table">
+        <div class="row vertical-center-row">
+            <div class="page-header">
+                <h1 class="text-center text-primary">The gibberish talking cookie</h1>
+            </div>
+            <div class="text-center col-l-10">
+                <button class="btn btn-success" id="set-cookie" onclick="goCookieGo(false)">Set the cookie
+                </button>
+                <button class="btn btn-danger" id="delete-cookie" onclick="goCookieGo(true)">Remove the cookie
+                </button>
+            </div>
+            <div class="text-center col-l-10">
+                <h1 class="text-center" id="cookie-value"></h1>
+            </div>
         </div>
-        <div class="text-center col-l-10">
-            <button class="btn btn-success" id="set-cookie" onclick="goCookieGo(false)">Set the cookie
-            </button>
-            <button class="btn btn-danger" id="delete-cookie" onclick="goCookieGo(true)">Remove the cookie
-            </button>
-        </div>
-        <div class="text-center col-l-10"><h1 class="text-center" id="cookie-value"></h1></div>
     </div>
-</div>
 </body>
+
 </html>
