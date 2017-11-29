@@ -26,7 +26,7 @@ rm -rf $finalpath
 mkdir $finalpath
 
 echo "Copying files to $finalpath"
-rsync -av --progress $basepath $finalpath --exclude '.git' --exclude '.gitignore' --exclude 'install.sh'
+rsync -av --progress $basepath $serverpath --exclude '.git' --exclude '.gitignore' --exclude 'install.sh'
 cd $finalpath
 echo "Intalling"
 npm install
