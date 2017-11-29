@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 serverpath=
 
@@ -14,9 +14,11 @@ elif [ $opt = 2 ]
     then 
         serverpath=/var/lib/tomcat8/webapps
 else
-    "Invalid option selected"
+    echo "Invalid option selected"
     exit
+fi
 
+chmod 755 $serverpath
 rm -rf $serverpath
 mkdir $serverpath
 rsync -av --progress ./ $serverpath --exclude '.git' --exclude '.gitignore' --exclude 'install.sh'
