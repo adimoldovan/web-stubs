@@ -20,13 +20,14 @@ else
     exit
 fi
 
-echo "Removing $serverpath"
-rm -rf $serverpath
-mkdir $serverpath
+finalpath=$serverpath/$basedir
+echo "Removing $finalpath"
+rm -rf $finalpath
+mkdir $finalpath
 
-echo "Copying files to $serverpath"
-rsync -av --progress $basepath $serverpath --exclude '.git' --exclude '.gitignore' --exclude 'install.sh'
-cd $serverpath/$basedir
+echo "Copying files to $finalpath"
+rsync -av --progress $basepath $finalpath --exclude '.git' --exclude '.gitignore' --exclude 'install.sh'
+cd $finalpath
 echo "Intalling"
 npm install
 echo "Cleaning up"
