@@ -21,6 +21,13 @@ else
 fi
 
 finalpath=$serverpath/$basedir
+
+echo "$basepath"
+echo "$basedir"
+echo "$finalpath"
+
+exit
+
 echo "Removing $finalpath"
 rm -rf $finalpath
 mkdir $finalpath
