@@ -1,7 +1,7 @@
 #!/bin/bash
 
 serverpath=
-basepath=$(dirname $0)
+basepath=$(dirname $(readlink -f $0))
 basedir=$(basename $basepath)
 
 echo -e "\nPlease select one option:\n"
@@ -21,12 +21,6 @@ else
 fi
 
 finalpath=$serverpath/$basedir
-
-echo "$basepath"
-echo "$basedir"
-echo "$finalpath"
-
-exit
 
 echo "Removing $finalpath"
 rm -rf $finalpath
