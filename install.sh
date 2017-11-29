@@ -1,6 +1,8 @@
 #!/bin/bash
 
 serverpath=
+basepath=$(dirname $0)
+basedir=$(basename $basepath)
 
 echo -e "\nPlease select one option:\n"
 echo -e "\t 1 - Install on Apache"
@@ -9,7 +11,7 @@ read opt
 
 if [ $opt = 1 ]
     then
-        serverpath=/var/www/html/stubs
+        serverpath=/var/www/html
 elif [ $opt = 2 ]
     then 
         serverpath=/var/lib/tomcat8/webapps
@@ -18,10 +20,14 @@ else
     exit
 fi
 
-chmod 755 $serverpath
+echo "Removing $serverpath"
 rm -rf $serverpath
 mkdir $serverpath
-rsync -av --progress ./ $serverpath --exclude '.git' --exclude '.gitignore' --exclude 'install.sh'
-cd $serverpath
+
+echo "Copying files to $serverpath"
+rsync -av --progress $basepath $serverpath --exclude '.git' --exclude '.gitignore' --exclude 'install.sh'
+cd $serverpath/$basedir
+echo "Intalling"
 npm install
-rm $serverpath/package*.json
+echo "Cleaning up"
+rm package*.json
