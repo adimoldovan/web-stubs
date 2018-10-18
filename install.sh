@@ -12,8 +12,3 @@ mkdir $finalpath
 
 echo "Copying files to $finalpath"
 rsync -av --progress $basepath $serverpath --exclude '.git' --exclude '.gitignore' --exclude 'install.sh'
-cd $finalpath
-echo "Installing"
-npm install
-echo "Cleaning up garbage in $finalpath"
-rm package*.json
