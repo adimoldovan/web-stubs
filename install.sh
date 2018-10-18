@@ -11,4 +11,4 @@ rm -rf $finalpath
 mkdir $finalpath
 
 echo "Copying files to $finalpath"
-rsync -av --progress $basepath $serverpath --exclude '.git' --exclude '.gitignore' --exclude 'install.sh' --exclude 'Dockerfile' --exclude '.dockerignore'
+rsync -av --progress $basepath $serverpath --exclude '.git' --exclude '.gitignore' --exclude 'install.sh' --exclude 'Dockerfile' --exclude '.dockerignore' --exclude 'README.md' --exclude '_config.yml'
