@@ -5,17 +5,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Draggable elements</title>
-    <link rel="stylesheet" href="../assets/jquery-ui-dist/jquery-ui.css">
-    <link rel="stylesheet" type="text/css" href="../assets/bootstrap/dist/css/bootstrap.min.css">
-    <script src="../assets/jquery/dist/jquery.js"></script>
-    <script src="../assets/jquery-ui-dist/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="../assets/jquery-ui/all.css">
+    <link rel="stylesheet" type="text/css" href="../assets/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
     <script>
         $(function () {
             $("#slider-range").slider({
                 range: true,
                 min: 0,
-                max: 1000,
-                values: [10, 750],
+                max: 500,
+                values: [75, 300],
                 slide: function (event, ui) {
                     $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
                 }

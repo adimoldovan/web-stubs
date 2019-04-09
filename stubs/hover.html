@@ -5,92 +5,28 @@
     <meta charset="UTF-8">
     <title>Advanced user interaction</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="../assets/bootstrap/dist/css/bootstrap.min.css">
-    <script src="../assets/jquery/dist/jquery.js"></script>
-    <script>
-        $(document).click(function (event) {
-            if ($(event.target).is(".clickable")) {
-                var text = "You clicked " + $(event.target).attr("name");
-
-            }
-            else {
-                var text = "";
-            }
-            $("#result").text(text);
-        });
-    </script>
-    <style>
-        /* Dropdown Button */
-
-        .dropbtn {
-            background-color: #4CAF50;
-            color: white;
-            padding: 16px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-        }
-
-        /* The container <div> - needed to position the dropdown content */
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        /* Dropdown Content (Hidden by Default) */
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-
-        /* Links inside the dropdown */
-
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-
-        /* Change color of dropdown links on hover */
-
-        .dropdown-content a:hover {
-            background-color: #f1f1f1
-        }
-
-        /* Show the dropdown menu on hover */
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        /* Change the background color of the dropdown button when the dropdown content is shown */
-
-        .dropdown:hover .dropbtn {
-            background-color: #3e8e41;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="../assets/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/hover.css">
+    <script src="../assets/jquery/jquery.js"></script>
+    <script src="../assets/js/hover.js"></script>
 </head>
 
 <body>
-    <div class="container text-center">
-        <div class="page-header">
-            <h1 class="text-center text-primary">Mouse over</h1>
-        </div>
-        <div class="row">
-            <p id="result"></p>
-            <div class="dropdown">
-                <button class="dropbtn">Hover me</button>
-                <div class="dropdown-content">
-                    <a href="#" class="clickable" name="item 1">item 1 (click me)</a>
-                    <a href="#" class="clickable" name="item 2">item 2 (click me)</a>
-                    <a href="#" class="clickable" name="item 3">item 3 (click me)</a>
+    <div class="container container-table">
+        <div class="row vertical-top-row">
+            <div class="page-header">
+                <h1 class="text-center text-primary">Mouse over</h1>
+            </div>
+            <div class="text-center">
+                <p id="result"></p>
+                <div class="dropdown">
+                    <button class="dropbtn">Hover me</button>
+                    <div class="dropdown-content">
+                        <a href="#" class="clickable" name="item 1">item 1 (click me)</a>
+                        <a href="#" class="clickable" name="item 2">item 2 (click me)</a>
+                        <a href="#" class="clickable" name="item 3">item 3 (click me)</a>
+                    </div>
                 </div>
             </div>
         </div>

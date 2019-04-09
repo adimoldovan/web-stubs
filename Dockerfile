@@ -1,5 +1,7 @@
 FROM nginx:alpine
 
+CMD npm install
+CMD gulp
 ADD assets /usr/share/nginx/html/assets
 COPY index.html /usr/share/nginx/html
 ADD stubs /usr/share/nginx/html/stubs
