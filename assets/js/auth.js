@@ -6,6 +6,10 @@ var local_storage_credentials_name = "credentials";
 	'use strict';
 	window.addEventListener('load', function () {
 		document.getElementById("login-panel-description").innerText = "Valid usernames: " + users + ". The password is the username + password word. E.g. '" + users[0] + "password'";
+		generateSelectData(1930, new Date().getFullYear(), document.getElementById('byear'));
+		generateSelectData(1, 12, document.getElementById('bmonth'));
+		generateSelectData(1, 31, document.getElementById('bday'));
+
 		document.getElementById("login_form").addEventListener("submit", function () {
 			return isLoginValid();
 		}, false);
@@ -19,6 +23,20 @@ var local_storage_credentials_name = "credentials";
 		}, false);
 	}, false);
 })();
+
+function generateSelectData(min, max, selectElement) {
+	var emptyOpt = document.createElement('option');
+	emptyOpt.value = "";
+	emptyOpt.innerText = "";
+	selectElement.appendChild(emptyOpt);
+	for (var i = min; i <= max; i++) {
+		var opt = document.createElement('option');
+		opt.value = i;
+		opt.innerText = i;
+		selectElement.appendChild(opt);
+	}
+}
+
 
 function validCredentials(username) {
 	return userExists(username) &&
@@ -34,7 +52,7 @@ function isLoginValid() {
 			event.stopPropagation();
 			form.classList.add('was-validated');
 			document.getElementById('login-error').innerText = 'Invalid username or password!';
-			return false; 
+			return false;
 		}
 		form.classList.add('was-validated');
 		setCookie(auth_cookie_name, username, 2);
