@@ -12,91 +12,105 @@
     <script src="../assets/jquery/jquery.js"></script>
     <script src="../assets/bootstrap/bootstrap.min.js"></script>
     <script src="../assets/js/auth.js"></script>
+    <style>
+        #login_panel,
+        #registration_panel {
+            max-width: 280px;
+            margin: 0 auto;
+        }
+
+        .panel-desc {
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+        .radio-label {
+            margin-left: 10px;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container">
         <div class="page-header">
             <h1 class="text-center text-primary">Authentication</h1>
         </div>
         <ul class="nav nav-tabs" id="auth_tabs" role="tablist">
             <li class="active">
-                <a class="nav-link active" id="login-tab" data-toggle="tab" href="#login" role="tab"
+                <a class="nav-link active" id="login-tab" data-toggle="tab" href="#login_panel" role="tab"
                     aria-controls="login" aria-selected="true">Login</a>
             </li>
             <li>
-                <a class="nav-link" id="register-tab" data-toggle="tab" href="#register" role="tab"
+                <a class="nav-link" id="register-tab" data-toggle="tab" href="#registration_panel" role="tab"
                     aria-controls="register" aria-selected="false">Register an account</a>
             </li>
         </ul>
-        <div class="tab-content">
-            <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
-                <div class="panel">
-                    <div class="panel-heading" id="login-panel-header">Log in</div>
-                    <div class="panel-body">
-                        <form id="login_form" class="well form-horizontal needs-validation" novalidate
-                            action='welcome.html'>
-                            <div class="form-group">
-                                <div class="col-xs-6">
-                                    <p class="form-control-static general-error" id="login-error"></p>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="input-login-username" class="control-label col-xs-4">Username</label>
-                                <div class="col-xs-4 input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="inputGroupPrepend"><i
-                                                class="fas fa-user"></i></span>
-                                    </div>
-                                    <input type="text" class="form-control" id="input-login-username"
-                                        placeholder="Username" required>
-                                    <div class="invalid-feedback">Please enter your username</div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="input-login-password" class="control-label col-xs-4">Password</label>
-                                <div class="col-xs-4 input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="inputGroupPrepend"><i
-                                                class="fas fa-unlock-alt"></i></span>
-                                    </div>
-                                    <input type="password" class="form-control" id="input-login-password"
-                                        placeholder="Password" data-error="Please enter your password" required>
-                                    <div class="invalid-feedback">Please enter your password</div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-xs-4 col-xs-offset-4">
-                                    <button type="submit" class="btn btn-primary" id="login-submit">
-                                        <i class="fa fa-sign-in"></i> Login
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
+        <div class="tab-content container">
+            <div class="tab-pane fade" id="login_panel" role="tabpanel" aria-labelledby="login-tab">
+                <div id="login-panel-description" class="panel-desc"></div>
+                <form id="login_form" class="well form-horizontal needs-validation" novalidate action='welcome.html'>
+                    <div class="form-group">
+                        <p class="form-control-static general-error" id="login-error"></p>
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label for="input-login-username" class="control-label">Username</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text" class="form-control" id="input-login-username" placeholder="Username"
+                                required>
+                            <div class="invalid-feedback">Please enter your username</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-login-password" class="control-label">Password</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend"><i
+                                        class="fas fa-unlock-alt"></i></span>
+                            </div>
+                            <input type="password" class="form-control" id="input-login-password" placeholder="Password"
+                                data-error="Please enter your password" required>
+                            <div class="invalid-feedback">Please enter your password</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-4 col-xs-offset-4">
+                            <button type="submit" class="btn btn-primary" id="login-submit">
+                                <i class="fa fa-sign-in"></i> Login
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
-                <div class="panel">
-                    <div class="panel-heading" id="registration-panel-header">Create a new account. A default session
-                        will be created with the succesfully created account. The new
-                        account will not be saved, so when the session expires (in 2 minutes), the account will no
-                        longer exist.</div>
-                    <div class="panel-body">
-                        <form class="well form-horizontal needs-validation" role="form" id="registration_form"
-                            novalidate action='welcome.html'>
-                            <div class="form-group">
-                                <label class="control-label col-md-4" for="registration-error"></label>
-                                <div class="col-md-4">
-                                    <p class="form-control-static general-error" id="registration-error"></p>
-                                </div>
-                            </div>
-
+            <div class="tab-pane fade show active" id="registration_panel" role="tabpanel"
+                aria-labelledby="register-tab">
+                <div id="registration-panel-description" class="panel-desc">Create a new account. A default session
+                    will be created with the succesfully created account. The new
+                    account will not be saved, so when the session expires (in 2 minutes), the account will no
+                    longer exist.</div>
+                <form class="well form-horizontal needs-validation" role="form" id="registration_form" novalidate
+                    action='welcome.html'>
+                    <div class="form-group">
+                        <p class="form-control-static general-error" id="registration-error"></p>
                     </div>
-                </div>
-                <div class="form-group has-feedback">
-                    <label for="inputFirstName" class="control-label col-md-4">First name (*)</label>
-                    <div class="col-md-4">
+                    <div class="form-group has-feedback">
+                        <label class="control-label">Title</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="inputGroupPrepend"><i
+                                    class="fas fa-venus-mars"></i></span>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" name="salutation">
+                                <label class="form-check-label radio-label">Mr.</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" name="salutation">
+                                <label class="form-check-label radio-label">Mrs.</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label for="inputFirstName" class="control-label">First name (*)</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="inputGroupPrepend"><i
@@ -108,27 +122,8 @@
                                 letters</div>
                         </div>
                     </div>
-                </div>
-                <div class="form-group has-feedback">
-                    <label class="control-label col-md-4">Title</label>
-                    <div class="col-md-4">
-                        <div class="input-group">
-                            <span class="input-group-text" id="inputGroupPrepend"><i
-                                    class="fas fa-venus-mars"></i></span>
-                            <div class="form-check form-check-inline">
-                                <input type="radio" name="salutation">
-                                <label class="form-check-label">Mr.</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input type="radio" name="salutation">
-                                <label class="form-check-label">Mrs.</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group has-feedback">
-                    <label for="inputLastName" class="control-label col-md-4">Last name (*)</label>
-                    <div class="col-md-4">
+                    <div class="form-group has-feedback">
+                        <label for="inputLastName" class="control-label">Last name (*)</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="inputGroupPrepend"><i
@@ -140,10 +135,8 @@
                                 letters</div>
                         </div>
                     </div>
-                </div>
-                <div class="form-group has-feedback">
-                    <label for="inputEmail" class="control-label col-md-4">Email (*)</label>
-                    <div class="col-md-4">
+                    <div class="form-group has-feedback">
+                        <label for="inputEmail" class="control-label">Email (*)</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="inputGroupPrepend"><i
@@ -155,10 +148,8 @@
                         </div>
                         <div class="help-block with-errors"></div>
                     </div>
-                </div>
-                <div class="form-group has-feedback">
-                    <label for="inputUsername" class="control-label col-md-4">Username (*)</label>
-                    <div class="col-md-4">
+                    <div class="form-group has-feedback">
+                        <label for="inputUsername" class="control-label">Username (*)</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-user"></i></span>
@@ -169,10 +160,8 @@
                                 letters or numbers</div>
                         </div>
                     </div>
-                </div>
-                <div class="form-group has-feedback">
-                    <label for="inputPassword" class="control-label col-md-4">Password (*)</label>
-                    <div class="col-md-4">
+                    <div class="form-group has-feedback">
+                        <label for="inputPassword" class="control-label">Password (*)</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="inputGroupPrepend"><i
@@ -183,12 +172,9 @@
                             <div class="invalid-feedback">Invalid input. Please use a minimum of 8
                                 characters</div>
                         </div>
-
                     </div>
-                </div>
-                <div class="form-group has-feedback">
-                    <label for="inputPassword2" class="control-label col-md-4">Confirm password (*)</label>
-                    <div class="col-md-4">
+                    <div class="form-group has-feedback">
+                        <label for="inputPassword2" class="control-label">Confirm password (*)</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="inputGroupPrepend"><i
@@ -199,10 +185,8 @@
                             <div class="invalid-feedback">Please confirm your password</div>
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="bday" class="col-md-4 control-label">Date of birth</label>
-                    <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="bday" class="col-md-4 control-label">Date of birth</label>
                         <span class="input-group-btn">
                             <div class="input-group">
                                 <div class="input-group-prepend">
@@ -309,22 +293,17 @@
                             </div>
                         </span>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-4 col-xs-offset-4">
+                    <div class="form-group">
                         <div class="checkbox">
                             <label>
                                 <input type="checkbox">Subscribe to our newsletter</label>
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-4 col-xs-offset-4">
+                    <div class="form-group">
                         <button type="submit" class="btn btn-primary" id="register-submit">
                             <i class="fa fa-user-plus"></i> Submit your registration
                         </button>
                     </div>
-                </div>
                 </form>
             </div>
         </div>

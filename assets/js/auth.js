@@ -5,7 +5,7 @@ var local_storage_credentials_name = "credentials";
 (function () {
 	'use strict';
 	window.addEventListener('load', function () {
-		document.getElementById("login-panel-header").innerText = "Valid usernames: " + users + ". The password is the username + password word. E.g. '" + users[0] + "password'";
+		document.getElementById("login-panel-description").innerText = "Valid usernames: " + users + ". The password is the username + password word. E.g. '" + users[0] + "password'";
 		document.getElementById("login_form").addEventListener("submit", function () {
 			return isLoginValid();
 		}, false);
