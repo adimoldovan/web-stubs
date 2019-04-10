@@ -3,193 +3,63 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Web stubs home</title>
+    <title>Web stubs</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="assets/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    <script src="assets/jquery/jquery.js"></script>
+    <script src="assets/bootstrap/bootstrap.min.js"></script>
     <style>
-        .tile {
-            width: 100%;
-            display: inline-block;
-            box-sizing: border-box;
-            padding: 20px;
-            margin-bottom: 30px;
-            color: #fff;
-        }
-
-        .tile.purple {
-            background: #5133ab;
-        }
-
-        .tile.purple:hover {
-            background: #3e2784;
-        }
-
-        .tile.red {
-            background: #ac193d;
-        }
-
-        .tile.red:hover {
-            background: #7f132d;
-        }
-
-        .tile.green {
-            background: #00a600;
-        }
-
-        .tile.green:hover {
-            background: #007300;
-        }
-
-        .tile.blue {
-            background: #2672ec;
-        }
-
-        .tile.blue:hover {
-            background: #125acd;
-        }
-
-        .tile.orange {
-            background: #dc572e;
-        }
-
-        .tile.orange:hover {
-            background: #b8431f;
+        .custom-center {
+            margin: auto;
         }
     </style>
 </head>
-
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>
-                    <strong>Index</strong>
-                </h1>
-            </div>
+
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav custom-center">
+                <li class="nav-item">
+                    <a class="nav-link" href="stubs/auth.html" target="iframe_content">Authentication</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="stubs/lazy.html" target="iframe_content">Lazy</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="stubs/cookie.html" target="iframe_content">Cookie</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="stubs/alert.html" target="iframe_content">Alert</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="stubs/hover.html" target="iframe_content">Hover</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="stubs/slider.html" target="iframe_content">Slider</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="stubs/lists.html" target="iframe_content">Connected lists</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="stubs/select.html" target="iframe_content">Selection</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="stubs/stale.html" target="iframe_content">Stale</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="stubs/thieves.html" target="iframe_content">Thieves</a>
+                </li>
+            </ul>
         </div>
-        <hr>
-        <div class="row">
-            <div class="col-sm-4">
-                <a href="stubs/welcome.html" target="_blank">
-                    <div class="tile red">
-                        <h3 class="title">Welcome</h3>
-                        <p>The welcome page</p>
-                        <p>Just a welcome page</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-sm-4">
-                <a href="stubs/auth.html" target="_blank">
-                    <div class="tile purple">
-                        <h3 class="title">Authentication</h3>
-                        <p>Login and Registration</p>
-                        <p>Practice form validation</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-sm-4">
-                <a href="stubs/lazy.html" target="_blank">
-                    <div class="tile blue">
-                        <h3 class="title">Lazy</h3>
-                        <p>The lazy button</p>
-                        <p>Practice waits</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-sm-4">
-                <a href="stubs/cookie.html" target="_blank">
-                    <div class="tile orange">
-                        <h3 class="title">Cookie</h3>
-                        <p>The gibberish cookie</p>
-                        <p>Practice cookie handling</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-sm-4">
-                <a href="stubs/alert.html" target="_blank">
-                    <div class="tile purple">
-                        <h3 class="title">Alert</h3>
-                        <p>Javascript alerts</p>
-                        <p>Handle common alerts</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-sm-4">
-                <a href="stubs/hover.html" target="_blank">
-                    <div class="tile red">
-                        <h3 class="title">Hover</h3>
-                        <p>Advanced user interaction</p>
-                        <p>Mouse over elements</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-sm-4">
-                <a href="stubs/slider.html" target="_blank">
-                    <div class="tile purple">
-                        <h3 class="title">Slider</h3>
-                        <p>Advanced user interaction</p>
-                        <p>Drag and drop elements</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-sm-4">
-                <a href="stubs/sortable.html" target="_blank">
-                    <div class="tile green">
-                        <h3 class="title">Sortable</h3>
-                        <p>Advanced user interaction</p>
-                        <p>Drag and drop elements</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-sm-4">
-                <a href="stubs/lists.html" target="_blank">
-                    <div class="tile orange">
-                        <h3 class="title">Connected lists</h3>
-                        <p>Advanced user interaction</p>
-                        <p>Drag and drop elements</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-sm-4">
-                <a href="stubs/select.html" target="_blank">
-                    <div class="tile blue">
-                        <h3 class="title">Selection</h3>
-                        <p>Advanced user interaction</p>
-                        <p>Multiple selection</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-sm-4">
-                <a href="stubs/stale.html" target="_blank">
-                    <div class="tile green">
-                        <h3 class="title">Stale</h3>
-                        <p>The stale element</p>
-                        <p>Handle StaleElementReferenceException</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-sm-4">
-                <a href="stubs/thieves.html" target="_blank">
-                    <div class="tile red">
-                        <h3 class="title">Click thieves</h3>
-                        <p>Other element will receive the click...</p>
-                        <p>Handle element is not clickable</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <hr>
-    </div>
-    </div>
+    </nav>
+
+    <iframe frameborder="0" style="position:absolute;width:100%;height:100%;" src="stubs/main.html"
+        name="iframe_content"></iframe>
 </body>
 
 </html>

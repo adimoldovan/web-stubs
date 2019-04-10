@@ -17,6 +17,6 @@ function stale() {
 
 function createButton() {
     $("#stale-button").remove();
-    $("#div2").html('<button type="button" class="btn btn-primary" id="stale-button" onclick="stale()">Click me. I dare you...</button>');
+    $("#div2").html('<button type="button" class="btn btn-info" id="stale-button" onclick="stale()">Click me. I dare you...</button>');
 }
 

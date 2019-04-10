@@ -1,9 +1,9 @@
 $(document).click(function (event) {
+    var text = "";
     if ($(event.target).is(".clickable")) {
-        var text = "You clicked " + $(event.target).attr("name");
-
+        text = "You clicked " + $(event.target).attr("name");
     } else {
-        var text = "";
+        text = "";
     }
     $("#result").text(text);
 });
