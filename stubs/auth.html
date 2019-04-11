@@ -22,6 +22,7 @@
 
         .panel-desc {
             margin-top: 25px;
+            padding-bottom: 5px;
             margin-bottom: 25px;
         }
 
@@ -41,18 +42,18 @@
             <h1 class="text-center text-info">Authentication</h1>
         </div>
         <ul class="nav nav-tabs" id="auth_tabs" role="tablist">
-            <li class="active">
-                <a class="nav-link active" id="login-tab" data-toggle="tab" href="#login_panel" role="tab"
+            <li class="nav-item active">
+                <a class="nav-link active text-info" id="login-tab" data-toggle="tab" href="#login_panel" role="tab"
                     aria-controls="login" aria-selected="true">Login</a>
             </li>
-            <li>
-                <a class="nav-link" id="register-tab" data-toggle="tab" href="#registration_panel" role="tab"
+            <li class="nav-item">
+                <a class="nav-link text-info" id="register-tab" data-toggle="tab" href="#registration_panel" role="tab"
                     aria-controls="register" aria-selected="false">Register an account</a>
             </li>
         </ul>
         <div class="tab-content container">
             <div class="tab-pane fade show active" id="login_panel" role="tabpanel" aria-labelledby="login-tab">
-                <div id="login-panel-description" class="panel-desc"></div>
+                <div id="login-panel-description" class="panel-desc text-justify border-bottom"></div>
                 <form id="login_form" class="well form-horizontal needs-validation" novalidate action='welcome.html'>
                     <div class="form-group">
                         <p class="form-control-static general-error" id="login-error"></p>
@@ -90,7 +91,7 @@
             </div>
             <div class="tab-pane fade" id="registration_panel" role="tabpanel"
                 aria-labelledby="register-tab">
-                <div id="registration-panel-description" class="panel-desc">Create a new temporary account. A default session
+                <div id="registration-panel-description" class="panel-desc text-justify border-bottom">Create a new temporary account. A default session
                     will be created with the succesfully created account. The new
                     account will not be saved, so when the session expires (in 2 minutes), the account will no
                     longer exist.</div>

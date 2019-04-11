@@ -5,7 +5,7 @@ var local_storage_credentials_name = "credentials";
 (function () {
 	'use strict';
 	window.addEventListener('load', function () {
-		document.getElementById("login-panel-description").innerText = "Valid usernames: " + users + ". The password is the username + password word. E.g. '" + users[0] + "password'";
+		document.getElementById("login-panel-description").innerText = "Valid usernames: " + users.join(', ') + ". The password is the username + \'password\' word. E.g. '" + users[0] + "password'";
 		generateSelectData(1930, new Date().getFullYear(), document.getElementById('byear'));
 		generateSelectData(1, 12, document.getElementById('bmonth'));
 		generateSelectData(1, 31, document.getElementById('bday'));
@@ -36,7 +36,6 @@ function generateSelectData(min, max, selectElement) {
 		selectElement.appendChild(opt);
 	}
 }
-
 
 function validCredentials(username) {
 	return userExists(username) &&
@@ -84,6 +83,7 @@ function register() {
 		}
 		form.classList.add('was-validated');
 		setCookie(auth_cookie_name, username, 2);
+		storeUserData();
 		return true;
 	}
 	else {
@@ -94,17 +94,8 @@ function register() {
 	}
 }
 
-function addCredentialsToLocalStorage(uname, pass) {
-	var credentials = [];
-	var credentials = JSON.parse(localStorage.getItem(local_storage_credentials_name));
-
-	if (credentials == null) {
-		var credentials = '{"Credentials":[]}';
-		credentials = JSON.parse(credentials);
-	}
-
-	credentials['Credentials'].push('{u:"' + uname + '", "p:"' + pass + '"}');
-	localStorage.setItem(local_storage_credentials_name, JSON.stringify(credentials));
+function storeRegistrationData(account) {
+	
 }
 
 function setCookie(cname, cvalue, exminutes) {

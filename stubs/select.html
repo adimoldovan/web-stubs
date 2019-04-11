@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="../assets/css/main.css">
     <script src="../assets/jquery/jquery.js"></script>
     <script src="../assets/js/selection.js"></script>
+    <style>
+        #select-browsers {
+            max-width: 200px;
+        }
+    </style>
 </head>
 
 <body>
@@ -16,28 +21,37 @@
         <div class="page-header text-center">
             <h1 class="text-info">Multiple selection</h1>
         </div>
-        <div class="col-xs-4">
-            <div class="form-group">
-                <form action="/action_page.php">
-                    <label for="select-browsers">Select at least one browser</label>
-                    <select name="browsers" multiple class="form-control" id="select-browsers">
-                        <option value="chrome">Chrome</option>
-                        <option value="ff">Firefox</option>
-                        <option value="ie">Internet Explorer</option>
-                        <option value="edge">Edge</option>
-                        <option value="safari">Safari</option>
-                        <option value="opera">Opera</option>
-                    </select>
-                </form>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <form action="/action_page.php">
+                        <label for="select-browsers" class="h5">Select at least one browser</label>
+                        <select name="browsers" multiple class="form-control" id="select-browsers">
+                            <option value="chrome">Chrome</option>
+                            <option value="ff">Firefox</option>
+                            <option value="ie">Internet Explorer</option>
+                            <option value="edge">Edge</option>
+                            <option value="safari">Safari</option>
+                            <option value="opera">Opera</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-info" onclick="submitBrowsers()" id="submit-browsers">Submit</button>
+                </div>
+                <p class="text-muted">You can select multiple options by using:</p>
+                <ul class="text-muted">
+                    <li>CTRL</li>
+                    <li>SHIFT</li>
+                    <li>CTRL+A</li>
+                    <li>Left click + hold + drag</li>
+                </ul>
             </div>
-            <div class="form-group">
-                <button class="btn btn-info" onclick="submitBrowsers()" id="submit-browsers">Submit</button>
+            
+            <div class="col">
+                <label for="selected-browsers" class="h5">Selected browsers</label>
+                <p id="selected-browsers"></p>
             </div>
-            <p>Use CTRL, SHIFT, CTRL+A, Left click + hold + drag, to select multiple options.</p>
-        </div>
-        <div class="col-xs-4">
-            <label for="selected-browsers">Selected browsers</label>
-            <p id="selected-browsers"></p>
         </div>
     </div>
 </body>
