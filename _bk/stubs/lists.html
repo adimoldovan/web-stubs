@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Draggable elements - connected lists</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="../assets/bootstrap/bootstrap.min.css">
+    <script src="../assets/jquery/jquery.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <style>
+        #sortable1,
+        #sortable2 {
+            border: 1px solid #eee;
+            min-height: 20px;
+            list-style-type: none;
+            padding: 15px;
+            float: left;
+            margin-right: 10px;
+        }
+
+        #sortable1 li,
+        #sortable2 li {
+            margin: 0 5px 5px 5px;
+            padding: 5px;
+            font-size: 1.2em;
+            width: 120px;
+        }
+    </style>
+    <script>
+        $(function () {
+            $("#sortable1, #sortable2").sortable({
+                connectWith: ".connectedSortable"
+            }).disableSelection();
+        });
+
+
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1 class="text-info">Draggable elements - connected lists</h1>
+        </div>
+        <div class="d-flex">
+            <ul id="sortable1" class="connectedSortable ui-corner-all mx-auto">
+                <li class="ui-state-error ui-corner-all">Red item 1</li>
+                <li class="ui-state-error ui-corner-all">Red item 2</li>
+                <li class="ui-state-error ui-corner-all">Red item 3</li>
+                <li class="ui-state-error ui-corner-all">Red item 4</li>
+                <li class="ui-state-error ui-corner-all">Red item 5</li>
+            </ul>
+            <ul id="sortable2" class="connectedSortable ui-corner-all mx-auto">
+                <li class="ui-state-highlight ui-corner-all">Yellow item 1</li>
+                <li class="ui-state-highlight ui-corner-all">Yellow item 2</li>
+                <li class="ui-state-highlight ui-corner-all">Yellow item 3</li>
+                <li class="ui-state-highlight ui-corner-all">Yellow item 4</li>
+                <li class="ui-state-highlight ui-corner-all">Yellow item 5</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

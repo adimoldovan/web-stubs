@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>The crazy cookie</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../assets/bootstrap/bootstrap.min.css">
+    <script src="../assets/jquery/jquery.js"></script>
+    <script src="../assets/js/cookie.js"></script>
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+
+<body onload="loadCookieValue()">
+
+    <div class="container container-table">
+        <div class="row vertical-top-row">
+            <div class="page-header">
+                <h1 class="text-center text-info">The gibberish talking cookie</h1>
+            </div>
+            <div class="text-center col-l-10">
+                <button class="btn btn-success" id="set-cookie" onclick="goCookieGo(false)">Set the cookie
+                </button>
+                <button class="btn btn-danger" id="delete-cookie" onclick="goCookieGo(true)">Remove the cookie
+                </button>
+            </div>
+            <div class="text-center col-l-10">
+                <h1 class="text-center" id="cookie-value"></h1>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Draggable elements</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="../assets/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/main.css">
+    <script src="../assets/jquery/jquery.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style>
+        #sortable {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 450px;
+        }
+
+        #sortable li {
+            margin: 3px 3px 3px 0;
+            padding: 1px;
+            float: left;
+            width: 100px;
+            height: 90px;
+            font-size: 4em;
+            text-align: center;
+            border: 1px solid gainsboro;
+        }
+    </style>
+    <script>
+        $(function () {
+            $("#sortable").sortable();
+            $("#sortable").disableSelection();
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container container-table">
+        <div class="row vertical-top-row text-center">
+            <div class="page-header">
+                <h1 class="text-info">Draggable elements</h1>
+            </div>
+            <div class="d-flex">
+                <ul id="sortable" class="mx-auto">
+                    <li class="label label-danger">1</li>
+                    <li class="label label-danger">4</li>
+                    <li class="label label-danger">3</li>
+                    <li class="label label-danger">5</li>
+                    <li class="label label-danger">2</li>
+                    <li class="label label-danger">8</li>
+                    <li class="label label-danger">7</li>
+                    <li class="label label-danger">6</li>
+                    <li class="label label-danger">12</li>
+                    <li class="label label-danger">10</li>
+                    <li class="label label-danger">11</li>
+                    <li class="label label-danger">9</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,8 +1,31 @@
+# Web-stubs
+
+Collection of web elements used in test automation
+
+## Local
+
 ```sh
-docker build -t web-stubs .
-docker run -d -p 4999:80 --name web-stubs web-stubs
+npm start
 ```
 
-https://web-stubs.herokuapp.com
+# Using Docker
 
-https://adimoldovan.github.io/web-stubs
+### Public image
+
+```sh
+docker run -d --name demo-shop -p 9100:80 adimoldovan/demo-shop
+```
+
+### Build your own image
+
+```sh
+docker build -t demo-shop .
+docker run --name demo-shop -p 9100:80 demo-shop
+```
+
+# Deploy to GH pages
+
+```sh
+npm install
+PUBLIC_URL=http://your-github-pages-url npm run deploy
+```
