@@ -7,6 +7,7 @@ export default class Thieves extends Component {
         return (
           <Container>
             <PageTitle page_title="Thieves" />
+              Coming soon in browsers all over the world
           </Container>
         )
       }

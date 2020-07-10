@@ -7,6 +7,7 @@ export default class Stale extends Component {
         return (
           <Container>
             <PageTitle page_title="Stale" />
+              Coming soon in browsers all over the world
           </Container>
         )
       }

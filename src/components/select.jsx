@@ -7,6 +7,7 @@ export default class Select extends Component {
         return (
           <Container>
             <PageTitle page_title="Select" />
+              Coming soon in browsers all over the world
           </Container>
         )
       }

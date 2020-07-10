@@ -7,6 +7,7 @@ export default class Slider extends Component {
         return (
           <Container>
             <PageTitle page_title="Slider" />
+              Coming soon in browsers all over the world
           </Container>
         )
       }

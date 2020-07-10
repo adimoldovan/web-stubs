@@ -7,6 +7,7 @@ export default class Sortable extends Component {
         return (
           <Container>
             <PageTitle page_title="Sortable" />
+              Coming soon in browsers all over the world
           </Container>
         )
       }
