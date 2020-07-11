@@ -7,16 +7,17 @@ export default class SideNav extends React.Component {
     return (
       <div className="sidebar">
         <Navbar.Brand href="https://github.com/adimoldovan/web-stubs" target="_blank"><FaGithub /></Navbar.Brand>
+        <Nav.Link href="#/auth">Authentication</Nav.Link>
         <Nav.Link href="#/alert">Alerts</Nav.Link>
         <Nav.Link href="#/cookie">Cookie</Nav.Link>
         <Nav.Link href="#/hover">Hover</Nav.Link>
-        <Nav.Link href="#/wait">Wait</Nav.Link>
-        <Nav.Link href="#/lists">Lists</Nav.Link>
-        <Nav.Link href="#/select">Select</Nav.Link>
-        <Nav.Link href="#/select">Slider</Nav.Link>
-        <Nav.Link href="#/select">Sortable</Nav.Link>
-        <Nav.Link href="#/select">Stale element</Nav.Link>
-        <Nav.Link href="#/select">Click intercepted</Nav.Link>
+        <Nav.Link href="#/wait">The answer (Wait)</Nav.Link>
+        <Nav.Link href="#/order">Order (Drag)</Nav.Link>
+        <Nav.Link href="#/swipe">Swipe (Drag)</Nav.Link>
+        <Nav.Link href="#/slider">Slider (Drag)</Nav.Link>
+        <Nav.Link href="#/stale">Stale element</Nav.Link>
+        <Nav.Link href="#/interceptor">Click intercepted</Nav.Link>
+        <Nav.Link href="#/modal">Modal</Nav.Link>
       </div>
     )
   }
