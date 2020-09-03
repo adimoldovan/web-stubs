@@ -20,10 +20,12 @@ ul {
     background: rgba(34, 171, 237, 0.1);
 }
 
-.draggable-list ol li a {
+.draggable-list ol li button {
     position: absolute;
     right: 20px;
     cursor: move;
+    background: transparent;
+    border: 0;
 }
 
 .draggable-list ol li:nth-last-child(1) {

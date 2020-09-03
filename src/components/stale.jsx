@@ -12,7 +12,7 @@ export default class Stale extends Component {
     }
 
     stale = (e) => {
-        this.state.count = this.state.count + 1
+        this.setState({count: ++this.state.count})
 
         e.target.remove();
         $("#stale-container").html(e.target);

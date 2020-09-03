@@ -12,7 +12,7 @@ export default class Hover extends Component {
     }
 
     clicked = (e) => {
-        this.setState({action: `You last clicked the ${e.target.name}`});
+        this.setState({action: `You last clicked the ${e.target.id}`});
     }
 
     render() {
@@ -27,7 +27,7 @@ export default class Hover extends Component {
                         <Button variant="outline-info">Hover me</Button>
                         <div className="dropdown-content">
                             {animals.map((animal, index) => (
-                                <a key={index} className="clickable" name={animal} onClick={this.clicked}>{animal}</a>
+                                <div key={index} className="clickable" id={animal} onClick={this.clicked}>{animal}</div>
                             ))}
                         </div>
                     </div>

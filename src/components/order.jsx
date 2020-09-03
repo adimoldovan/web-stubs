@@ -29,7 +29,7 @@ export default class Order extends Component {
                 that.setState({data});
             },
             nodeSelector: 'li',
-            handleSelector: 'a'
+            handleSelector: 'button'
         };
 
         return (
@@ -41,7 +41,7 @@ export default class Order extends Component {
                             {this.state.data.map((item, index) => (
                                 <li key={index}>
                                     {item.title}
-                                    <a id={`move-item-${index}`}><FaArrowsAlt/></a>
+                                    <button id={`move-item-${index}`} ><FaArrowsAlt/></button>
                                 </li>
                             ))}
                         </ol>
