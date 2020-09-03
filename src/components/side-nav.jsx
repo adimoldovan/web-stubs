@@ -7,7 +7,8 @@ export default class SideNav extends React.Component {
     return (
       <div className="sidebar">
         <Navbar.Brand href="https://github.com/adimoldovan/web-stubs" target="_blank"><FaGithub /></Navbar.Brand>
-        <Nav.Link href="#/auth">Authentication</Nav.Link>
+        <Nav.Link href="#/login">Login</Nav.Link>
+        <Nav.Link href="#/registration">Registration</Nav.Link>
         <Nav.Link href="#/alert">Alerts</Nav.Link>
         <Nav.Link href="#/cookie">Cookie</Nav.Link>
         <Nav.Link href="#/hover">Hover</Nav.Link>

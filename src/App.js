@@ -4,7 +4,6 @@ import {Container} from 'react-bootstrap';
 import {HashRouter, Route, Switch} from 'react-router-dom';
 import SideNav from './components/side-nav'
 import Home from './components/home'
-import Auth from './components/auth'
 import Notfound from './components/notfound'
 import Cookie from './components/cookie'
 import Alert from './components/alert'
@@ -17,6 +16,8 @@ import Interceptor from './components/interceptor'
 import Welcome from './components/welcome'
 import Wait from './components/wait'
 import ModalPopup from './components/modalPopup'
+import Login from "./components/login";
+import Registration from "./components/registration";
 
 export default class App extends Component {
     render() {
@@ -27,7 +28,8 @@ export default class App extends Component {
                     <HashRouter basename='/web-stubs'>
                         <Switch>
                             <Route exact path={'/'} component={Home}/>
-                            <Route path={'/auth'} component={Auth}/>
+                            <Route path={'/login'} component={Login}/>
+                            <Route path={'/registration'} component={Registration}/>
                             <Route path={'/cookie'} component={Cookie}/>
                             <Route path={'/alert'} component={Alert}/>
                             <Route path={'/hover'} component={Hover}/>

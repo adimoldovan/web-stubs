@@ -1,12 +1,12 @@
 import React from 'react'
 import {Col, Container, Row} from 'react-bootstrap';
 
-export default class PageTitle extends React.Component {
+export default class PageDescription extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            title: props.page_title
+            desc: props.page_description
         };
     }
 
@@ -15,9 +15,7 @@ export default class PageTitle extends React.Component {
             <Container>
                 <Row>
                     <Col>
-                        <h1>
-                            <small className="text-muted">{this.state.title}</small>
-                        </h1>
+                        <small className="text-muted">{this.state.desc}</small>
                         <hr/>
                     </Col>
                 </Row>
