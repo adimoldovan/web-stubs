@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3a2efa0eae118a4d4d1e2b113ac8b4d0",
+    "revision": "15969a4f5ec58f8d8fb834654e4ac733",
     "url": "https://web-stubs.herokuapp.com/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://web-stubs.herokuapp.com/static/css/2.e230af86.chunk.css"
   },
   {
-    "revision": "13f1cca2ab411c1ada1e",
-    "url": "https://web-stubs.herokuapp.com/static/css/main.1c2d995c.chunk.css"
+    "revision": "444eb042e6ebdad57cd6",
+    "url": "https://web-stubs.herokuapp.com/static/css/main.589e2540.chunk.css"
   },
   {
     "revision": "dc02d359a31ff32b0920",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://web-stubs.herokuapp.com/static/js/2.caef54fd.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "13f1cca2ab411c1ada1e",
-    "url": "https://web-stubs.herokuapp.com/static/js/main.190d5193.chunk.js"
+    "revision": "444eb042e6ebdad57cd6",
+    "url": "https://web-stubs.herokuapp.com/static/js/main.04af18f6.chunk.js"
   },
   {
     "revision": "2364b01b04a57eb0ad91",
