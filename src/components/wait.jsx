@@ -25,7 +25,7 @@ export default class Wait extends Component {
             <div>
                 <PageTitle page_title="Wait"/>
                 <Container>
-                    <Row className="text-center the_answer">
+                    <Row className="text-center the-answer">
                         <Col className="text-center">
                             {this.state.theAnswer}
                         </Col>
