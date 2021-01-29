@@ -23,18 +23,16 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "sh bin/version.sh && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "copy-ci-config": "copyfiles .circleci/* build",
-    "deploy": "npm run copy-ci-config && gh-pages -d build -t -u 'CD Pipeline <cd@trashmail.com>'"
+    "deploy": "gh-pages -d build -t -u 'CD Pipeline <cd@trashmail.com>'"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
   "devDependencies": {
-    "copyfiles": "^2.2.0",
     "gh-pages": "^2.2.0"
   },
   "browserslist": {

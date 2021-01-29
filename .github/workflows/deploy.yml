@@ -1,0 +1,72 @@
+name: Build and push to static branches
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-push-to-gh-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.1.2
+        with:
+          node-version: 12
+      - name: Build for Github pages
+        run: |
+          yarn install --frozen-lockfile
+          PUBLIC_URL=https://adimoldovan.github.io/web-stubs yarn run build
+      - name: Push to Github pages branch
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EMAIL: "github-actions-bot-noreply@noreply"
+          USERNAME: "github-actions-bot"
+          TARGET_BRANCH: "gh-pages"
+        run: sh bin/push-build-to-branch.sh
+  build-and-push-to-heroku:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.1.2
+        with:
+          node-version: 12
+      - name: Build for Heroku
+        run: |
+          yarn install --frozen-lockfile
+          PUBLIC_URL=https://web-stubs.herokuapp.com yarn run build
+          cd build
+          echo '{}' > composer.json
+          echo '<?php include_once("home.html"); ?>' > index.php
+          mv index.html home.html
+      - name: Push to Heroku branch
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EMAIL: "github-actions-bot-noreply@noreply"
+          USERNAME: "github-actions-bot"
+          TARGET_BRANCH: "heroku"
+        run: sh bin/push-build-to-branch.sh
+  build-and-push-to-static:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.1.2
+        with:
+          node-version: 12
+      - name: Build for Heroku
+        run: |
+          yarn install --frozen-lockfile
+          yarn run build
+      - name: Push to static branch
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EMAIL: "github-actions-bot-noreply@noreply"
+          USERNAME: "github-actions-bot"
+          TARGET_BRANCH: "static"
+        run: sh bin/push-build-to-branch.sh
