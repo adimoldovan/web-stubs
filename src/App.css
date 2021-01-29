@@ -39,8 +39,7 @@ div.page-content {
     text-align: center;
     font-size: 4em;
     font-weight: bolder;
-    opacity: 60%;
-    color: #000;
+    color: #454545;
 }
 
 @media screen and (max-width: 700px) {
