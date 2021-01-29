@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "https://adimoldovan.github.io/web-stubs/static/css/main.1c2d995c.chunk.css",
-    "main.js": "https://adimoldovan.github.io/web-stubs/static/js/main.604c1a3e.chunk.js",
-    "main.js.map": "https://adimoldovan.github.io/web-stubs/static/js/main.604c1a3e.chunk.js.map",
+    "main.css": "https://adimoldovan.github.io/web-stubs/static/css/main.589e2540.chunk.css",
+    "main.js": "https://adimoldovan.github.io/web-stubs/static/js/main.6b4d4c7f.chunk.js",
+    "main.js.map": "https://adimoldovan.github.io/web-stubs/static/js/main.6b4d4c7f.chunk.js.map",
     "runtime-main.js": "https://adimoldovan.github.io/web-stubs/static/js/runtime-main.bea0b666.js",
     "runtime-main.js.map": "https://adimoldovan.github.io/web-stubs/static/js/runtime-main.bea0b666.js.map",
     "static/css/2.e230af86.chunk.css": "https://adimoldovan.github.io/web-stubs/static/css/2.e230af86.chunk.css",
     "static/js/2.caef54fd.chunk.js": "https://adimoldovan.github.io/web-stubs/static/js/2.caef54fd.chunk.js",
     "static/js/2.caef54fd.chunk.js.map": "https://adimoldovan.github.io/web-stubs/static/js/2.caef54fd.chunk.js.map",
     "index.html": "https://adimoldovan.github.io/web-stubs/index.html",
-    "precache-manifest.d285b5c5db1b99084419fa27b042be4a.js": "https://adimoldovan.github.io/web-stubs/precache-manifest.d285b5c5db1b99084419fa27b042be4a.js",
+    "precache-manifest.3d351370dcc02fb5d5dcceed4e460f19.js": "https://adimoldovan.github.io/web-stubs/precache-manifest.3d351370dcc02fb5d5dcceed4e460f19.js",
     "service-worker.js": "https://adimoldovan.github.io/web-stubs/service-worker.js",
     "static/css/2.e230af86.chunk.css.map": "https://adimoldovan.github.io/web-stubs/static/css/2.e230af86.chunk.css.map",
-    "static/css/main.1c2d995c.chunk.css.map": "https://adimoldovan.github.io/web-stubs/static/css/main.1c2d995c.chunk.css.map",
+    "static/css/main.589e2540.chunk.css.map": "https://adimoldovan.github.io/web-stubs/static/css/main.589e2540.chunk.css.map",
     "static/js/2.caef54fd.chunk.js.LICENSE.txt": "https://adimoldovan.github.io/web-stubs/static/js/2.caef54fd.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.bea0b666.js",
     "static/css/2.e230af86.chunk.css",
     "static/js/2.caef54fd.chunk.js",
-    "static/css/main.1c2d995c.chunk.css",
-    "static/js/main.604c1a3e.chunk.js"
+    "static/css/main.589e2540.chunk.css",
+    "static/js/main.6b4d4c7f.chunk.js"
   ]
 }
