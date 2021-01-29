@@ -13,19 +13,12 @@ npm start
 ### Public image
 
 ```sh
-docker run -d --name demo-shop -p 9100:80 adimoldovan/demo-shop
+docker run -d --name web-stubs -p 9100:80 adimoldovan/web-stubs
 ```
 
 ### Build your own image
 
 ```sh
-docker build -t demo-shop .
-docker run --name demo-shop -p 9100:80 demo-shop
-```
-
-# Deploy to GH pages
-
-```sh
-npm install
-PUBLIC_URL=http://your-github-pages-url npm run deploy
+docker build -t web-stubs .
+docker run --name web-stubs -p 9100:80 web-stubs
 ```
