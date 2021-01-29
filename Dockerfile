@@ -1,10 +1,13 @@
-FROM nginx:alpine
+FROM node:alpine as build
+WORKDIR /app
+COPY package*.json /app/
+RUN npm install
+COPY . /app/
+RUN npm run build
 
-CMD npm install
-CMD gulp
-ADD assets /usr/share/nginx/html/assets
-COPY index.html /usr/share/nginx/html
-ADD stubs /usr/share/nginx/html/stubs
-
+FROM nginx:stable-alpine
+COPY --from=build /app/build /usr/share/nginx/html
+RUN rm /etc/nginx/conf.d/default.conf
+COPY nginx/nginx.conf /etc/nginx/conf.d
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]

@@ -1,0 +1,78 @@
+.alert-button {
+    margin: 10px;
+}
+
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 150px;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    border-right: 1px solid #e0e0e0;
+    font-size: 14px;
+}
+
+.sidebar a {
+    display: block;
+    color: #666;
+    padding: 16px;
+    text-decoration: none;
+    cursor: hand;
+}
+
+.sidebar a:hover:not(.active) {
+    color: black;
+}
+
+div.content {
+    margin-left: 150px;
+    padding: 1px 16px;
+    height: 1000px;
+}
+
+div.page-content {
+    margin: 0 auto;
+}
+
+.the_answer {
+    text-align: center;
+    font-size: 4em;
+    font-weight: bolder;
+    opacity: 60%;
+}
+
+@media screen and (max-width: 700px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .sidebar a {
+        float: left;
+    }
+
+    div.content {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .sidebar a {
+        text-align: center;
+        float: none;
+    }
+}
+
+.form {
+    margin-top: 30px;
+}
+
+.form-label {
+    text-align: right;
+}
+
+.form-control {
+    max-width: 200px;
+}

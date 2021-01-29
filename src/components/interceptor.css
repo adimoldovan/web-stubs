@@ -1,0 +1,10 @@
+.interceptor-content {
+    margin: auto;
+    text-align: center;
+}
+
+.off {
+    margin-left: -20px;
+    padding-left: 25px;
+    /*background-color: yellow;*/
+}
