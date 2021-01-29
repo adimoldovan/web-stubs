@@ -25,7 +25,8 @@ export default class Stale extends Component {
     }
 
     handleClick() {
-        this.setState({count: ++this.state.count});
+        let count = this.state.count;
+        this.setState({count: ++count});
         this.staleBtn = this.createButton();
         this.forceUpdate();
         this.render();
