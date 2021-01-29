@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "https://web-stubs.herokuapp.com/static/css/main.1c2d995c.chunk.css",
+    "main.js": "https://web-stubs.herokuapp.com/static/js/main.190d5193.chunk.js",
+    "main.js.map": "https://web-stubs.herokuapp.com/static/js/main.190d5193.chunk.js.map",
+    "runtime-main.js": "https://web-stubs.herokuapp.com/static/js/runtime-main.af2b7d0e.js",
+    "runtime-main.js.map": "https://web-stubs.herokuapp.com/static/js/runtime-main.af2b7d0e.js.map",
+    "static/css/2.e230af86.chunk.css": "https://web-stubs.herokuapp.com/static/css/2.e230af86.chunk.css",
+    "static/js/2.caef54fd.chunk.js": "https://web-stubs.herokuapp.com/static/js/2.caef54fd.chunk.js",
+    "static/js/2.caef54fd.chunk.js.map": "https://web-stubs.herokuapp.com/static/js/2.caef54fd.chunk.js.map",
+    "index.html": "https://web-stubs.herokuapp.com/index.html",
+    "precache-manifest.9abe2a766e080353b68fe3a9052b1590.js": "https://web-stubs.herokuapp.com/precache-manifest.9abe2a766e080353b68fe3a9052b1590.js",
+    "service-worker.js": "https://web-stubs.herokuapp.com/service-worker.js",
+    "static/css/2.e230af86.chunk.css.map": "https://web-stubs.herokuapp.com/static/css/2.e230af86.chunk.css.map",
+    "static/css/main.1c2d995c.chunk.css.map": "https://web-stubs.herokuapp.com/static/css/main.1c2d995c.chunk.css.map",
+    "static/js/2.caef54fd.chunk.js.LICENSE.txt": "https://web-stubs.herokuapp.com/static/js/2.caef54fd.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.af2b7d0e.js",
+    "static/css/2.e230af86.chunk.css",
+    "static/js/2.caef54fd.chunk.js",
+    "static/css/main.1c2d995c.chunk.css",
+    "static/js/main.190d5193.chunk.js"
+  ]
+}
