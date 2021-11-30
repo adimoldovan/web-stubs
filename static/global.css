@@ -1,0 +1,95 @@
+:root {
+    --main-background-color: #fff;
+    --secondary-background-color: #656575;
+    --border-color: rgba(170, 170, 170, 0.73);
+}
+
+* {box-sizing: border-box;}
+
+body {
+    color: #333;
+    margin: 0;
+    font-family: Geneva, ui-sans-serif;
+    font-size: 16px;
+    background-color: var(--main-background-color);
+}
+
+h1 {
+    font-size: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 3vh;
+    text-align: left;
+}
+
+.page-description {
+    text-align: left;
+    margin-bottom: 2vh;
+    padding-bottom: 2vh;
+    border-bottom: 1px solid var(--border-color);
+    font-size: small;
+}
+
+.header {
+    background-color: var(--main-background-color);
+    box-shadow: 0 -0.4rem 0.9rem 0.2rem #00000080;
+    z-index: 100;
+    padding: 1vh 0 1vh 0;
+}
+
+.header-right {
+    float: right;
+}
+
+.brand {
+    float: left;
+    text-transform: uppercase;
+}
+
+.build-version {
+    float: left;
+    font-size: 0.7rem;
+}
+
+.content {
+    padding: 2vh 20px 10px 220px;
+    text-align: center;
+}
+
+.sidebar {
+    margin: 0;
+    padding-top: 2vh;
+    width: 200px;
+    background-color: var(--secondary-background-color);
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+.sidebar a {
+    display: block;
+    color: #e6e6e6;
+    padding: 10px 5px 10px 5px;
+    text-decoration: none;
+}
+
+.sidebar a:hover:not(.active) {
+    color: white;
+}
+
+@media screen and (max-width: 450px) {
+    .sidebar {
+        padding-top: 1vh;
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .sidebar a {
+        text-align: center;
+        float: none;
+    }
+
+    .content {
+        padding-left: 20px;
+    }
+}

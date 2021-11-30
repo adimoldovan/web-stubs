@@ -12,7 +12,8 @@ Collection of isolated web components for test automation practice.
 Install NodeJs
 
 ```sh
-npm start
+npm install
+npm run dev
 ```
 
 # Using Docker
