@@ -1,5 +1,5 @@
 <script>
-	import { Button} from 'sveltestrap';
+	import { Button } from 'sveltestrap';
 
 	const animals = ['Dog', 'Bird', 'Cat', 'Mouse', 'Horse'];
 	let clicked;
@@ -9,13 +9,6 @@
 	}
 </script>
 <style>
-    .dropbtn {
-        color: white;
-        padding: 16px;
-        font-size: 16px;
-        border: none;
-    }
-
     .dropdown {
         position: relative;
         display: inline-block;
@@ -47,16 +40,16 @@
         text-align: center;
     }
 
-		.clicked {
-				font-weight: bolder;
-				text-decoration: underline;
-		}
+    .clicked {
+        font-weight: bolder;
+        text-decoration: underline;
+    }
 </style>
 
 <h1>Hover</h1>
 <p id='result'>{clicked ? 'You last clicked the' : ''} <span class='clicked'>{clicked ? clicked : ''}</span></p>
 <div class='row dropdown'>
-	<Button class='dropbtn'>Hover me</Button>
+	<Button>Hover me</Button>
 	<div class='dropdown-content'>
 		{#each animals as animal}
 			<div id={animal} on:click={handleClick}>{animal}</div>

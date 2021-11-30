@@ -9,8 +9,6 @@ Collection of isolated web components for test automation practice.
 
 ## Run locally
 
-Install NodeJs
-
 ```sh
 npm install
 npm run dev
