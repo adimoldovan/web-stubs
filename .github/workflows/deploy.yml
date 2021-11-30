@@ -17,8 +17,8 @@ jobs:
           node-version: 12
       - name: Build for Github pages
         run: |
-          yarn install --frozen-lockfile
-          PUBLIC_URL=https://adimoldovan.github.io/web-stubs yarn run build
+          npm install
+          PUBLIC_URL=https://adimoldovan.github.io/web-stubs npm run build
       - name: Push to Github pages branch
         env:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -37,8 +37,8 @@ jobs:
           node-version: 12
       - name: Build for Heroku
         run: |
-          yarn install --frozen-lockfile
-          PUBLIC_URL=https://web-stubs.herokuapp.com yarn run build
+          npm install
+          PUBLIC_URL=https://web-stubs.herokuapp.com npm run build
           cd build
           echo '{}' > composer.json
           echo '<?php include_once("home.html"); ?>' > index.php
@@ -59,10 +59,10 @@ jobs:
         uses: actions/setup-node@v2.1.2
         with:
           node-version: 12
-      - name: Build for Heroku
+      - name: Build static
         run: |
-          yarn install --frozen-lockfile
-          yarn run build
+          npm install
+          npm run build
       - name: Push to static branch
         env:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
