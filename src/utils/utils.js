@@ -14,3 +14,5 @@ export function getCookie(cookieName) {
 export function getValueFromCookie(cookie) {
 	return cookie ? cookie.split('=')[1].trim() : undefined;
 }
+
+export class omCookie {}

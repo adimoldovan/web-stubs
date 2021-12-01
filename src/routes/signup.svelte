@@ -4,7 +4,7 @@
 		Col,
 		Form,
 		FormGroup,
-		FormText,
+		FormText, Icon,
 		Input,
 		InputGroup,
 		InputGroupText,
@@ -19,11 +19,11 @@
 
 	let errorMessage;
 
-	const { form, errors, state, handleChange, handleSubmit, handleReset } = createForm({
+	const { form, errors, state, handleChange, handleSubmit} = createForm({
 		initialValues: {
-			username: 'dino',
-			password: 'dinopassword',
-			password2: 'dinopassword',
+			username: '',
+			password: '',
+			password2: '',
 			firstName: '',
 			lastName: '',
 			tc: false
@@ -100,7 +100,7 @@
 				<FormGroup>
 					<Label for='username'>Username*</Label>
 					<InputGroup>
-						<InputGroupText>$</InputGroupText>
+						<InputGroupText><Icon name='person'/></InputGroupText>
 						<Input id='username'
 									 on:change={handleChange}
 									 on:blur={handleChange}
@@ -116,7 +116,7 @@
 				<FormGroup>
 					<Label for='password'>Password*</Label>
 					<InputGroup>
-						<InputGroupText>$</InputGroupText>
+						<InputGroupText><Icon name='key'/></InputGroupText>
 						<Input id='password' name='password' type='password'
 									 on:change={handleChange}
 									 on:blur={handleChange}
@@ -132,7 +132,7 @@
 				<FormGroup>
 					<Label for='password2'>Confirm password*</Label>
 					<InputGroup>
-						<InputGroupText>$</InputGroupText>
+						<InputGroupText><Icon name='key'/></InputGroupText>
 						<Input id='password2' name='password2' type='password'
 									 on:change={handleChange}
 									 on:blur={handleChange}
@@ -156,7 +156,7 @@
 				<FormGroup>
 					<Label for='input-first-name'>First name</Label>
 					<InputGroup>
-						<InputGroupText>$</InputGroupText>
+						<InputGroupText><Icon name='card-heading'/></InputGroupText>
 						<Input id='input-first-name' name='firstName'
 									 on:change={handleChange}
 									 on:blur={handleChange}
@@ -172,7 +172,7 @@
 				<FormGroup>
 					<Label for='input-last-name'>Last name</Label>
 					<InputGroup>
-						<InputGroupText>$</InputGroupText>
+						<InputGroupText><Icon name='card-heading'/></InputGroupText>
 						<Input id='input-last-name' name='lastName'
 									 on:change={handleChange}
 									 on:blur={handleChange}
@@ -188,7 +188,7 @@
 				<FormGroup>
 					<Label for='input-email'>Email</Label>
 					<InputGroup>
-						<InputGroupText>$</InputGroupText>
+						<InputGroupText><Icon name='envelope'/></InputGroupText>
 						<Input id='input-email' name='email' type='email' />
 					</InputGroup>
 					<FormText className='text-left' muted>
@@ -198,7 +198,7 @@
 				<FormGroup>
 					<Label for='input-dob'>Date of birth</Label>
 					<InputGroup>
-						<InputGroupText>$</InputGroupText>
+						<InputGroupText><Icon name='calendar-date'/></InputGroupText>
 						<Input
 							type='date'
 							name='dob'
@@ -208,7 +208,7 @@
 				<FormGroup>
 					<Label for='input-nationality'>Nationality</Label>
 					<InputGroup>
-						<InputGroupText>$</InputGroupText>
+						<InputGroupText><Icon name='globe'/></InputGroupText>
 						<Input id='input-nationality' type='select'>
 							<option value=''></option>
 							{#each countries as country}
