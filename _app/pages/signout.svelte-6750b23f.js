@@ -1,1 +1,0 @@
-import{S as n,i as o,s as e,A as a}from"../chunks/vendor-801df107.js";import{s as u}from"../chunks/utils-8b76e306.js";function i(s){return a(()=>{u("auth","",-1),location.pathname="/"}),[]}class c extends n{constructor(t){super();o(this,t,i,null,e,{})}}export{c as default};
