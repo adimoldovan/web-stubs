@@ -12,7 +12,9 @@ jobs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
       - id: set-matrix
-        run: echo "::set-output name=matrix::[ {\"branch\":\"gh-pages\",\"script\":\"./bin/build-for-gh-pages.sh\"}, {\"branch\":\"heroku\",\"script\":\"./bin/build-for-heroku.sh\"}, {\"branch\":\"static\",\"script\":\"./bin/build-static-site.sh\"} ]"
+        run: |
+          MATRIX=[{"branch":"gh-pages","script":"./bin/build-for-gh-pages.sh"},{"branch":"heroku","script":"./bin/build-for-heroku.sh"},{"branch":"static","script":"./bin/build-static-site.sh"}]
+          echo "::set-output name=matrix::$MATRIX"
 
   build-and-push-static-branches:
     needs: build-matrix
