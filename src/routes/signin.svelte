@@ -8,17 +8,17 @@
 
 	const { form, errors, state, handleChange, handleSubmit, handleReset } = createForm({
 		initialValues: {
-			username: '',
-			password: ''
+			user: '',
+			pass: ''
 		},
 		validate: values => {
 			let errs = {};
 			errorMessage = '';
-			if (values.username === '') {
-				errs['username'] = 'Please enter your username';
+			if (values.user === '') {
+				errs['user'] = 'Please enter your username';
 			}
-			if (values.password === '') {
-				errs['password'] = 'Please enter your password';
+			if (values.pass === '') {
+				errs['pass'] = 'Please enter your password';
 			}
 
 			return errs;
@@ -26,7 +26,7 @@
 
 		onSubmit: values => {
 			if (validCredentials(values)) {
-				setCookie('auth', values.username, 30);
+				setCookie('auth', values.user, 2);
 				location.pathname = '/';
 			} else {
 				handleReset();
@@ -36,8 +36,8 @@
 	});
 
 	function validCredentials(values) {
-		const user = users.filter(u => u.username === values.username)[0];
-		return (user && user.password === values.password);
+		const user = users.filter(u => u.username === values.user)[0];
+		return (user && user.password === values.pass);
 	}
 </script>
 
@@ -62,7 +62,7 @@
 					<small class='form-error'>{errorMessage}</small>
 				{/if}
 				<FormGroup>
-					<Label for='username'>Username</Label>
+					<Label for='user'>Username</Label>
 					<InputGroup>
 						<InputGroupText>
 							<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor'
@@ -71,17 +71,17 @@
 									d='M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z' />
 							</svg>
 						</InputGroupText>
-						<Input id='username'
+						<Input id='user'
 									 on:change={handleChange}
 									 on:blur={handleChange}
-									 bind:value={$form.username} />
+									 bind:value={$form.user} />
 					</InputGroup>
-					{#if $errors.username}
-						<small class='form-error'>{$errors.username}</small>
+					{#if $errors.user}
+						<small class='form-error'>{$errors.user}</small>
 					{/if}
 				</FormGroup>
 				<FormGroup>
-					<Label for='password'>Password</Label>
+					<Label for='pass'>Password</Label>
 					<InputGroup>
 						<InputGroupText>
 							<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'>
@@ -90,13 +90,13 @@
 								<path d='M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z' />
 							</svg>
 						</InputGroupText>
-						<Input id='password' type='password'
+						<Input id='pass' type='password'
 									 on:change={handleChange}
 									 on:blur={handleChange}
-									 bind:value={$form.password} />
+									 bind:value={$form.pass} />
 					</InputGroup>
-					{#if $errors.password}
-						<small class='form-error'>{$errors.password}</small>
+					{#if $errors.pass}
+						<small class='form-error'>{$errors.pass}</small>
 					{/if}
 				</FormGroup>
 				<FormGroup>
