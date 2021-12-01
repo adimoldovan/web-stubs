@@ -1,0 +1,1 @@
+function s(e,t,o){const i=new Date;i.setTime(i.getTime()+o*60*1e3);const n="expires="+i.toUTCString();document.cookie=e+"="+t+";"+n+";path=/"}function r(e){const t=document.cookie.split(";");return console.log(t),t.filter(o=>o.split("=")[0].trim()===e)[0]}function c(e){return e?e.split("=")[1].trim():void 0}export{c as a,r as g,s};
