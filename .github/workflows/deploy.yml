@@ -14,6 +14,7 @@ jobs:
       - id: set-matrix
         run: |
           MATRIX=[{"branch":"gh-pages","script":"./bin/build-for-gh-pages.sh"},{"branch":"heroku","script":"./bin/build-for-heroku.sh"},{"branch":"static","script":"./bin/build-static-site.sh"}]
+          echo $MATRIX
           echo "::set-output name=matrix::$MATRIX"
 
   build-and-push-static-branches:
