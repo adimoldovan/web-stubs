@@ -18,6 +18,7 @@ jobs:
           echo "::set-output name=matrix::$MATRIX"
 
   build-and-push-static-branches:
+    name: "Build ${{ matrix.branch }} branch"
     needs: build-matrix
     runs-on: ubuntu-latest
     strategy:
@@ -29,11 +30,11 @@ jobs:
         uses: actions/setup-node@v2.1.2
         with:
           node-version: 16
-      - name: Build for ${{ matrix.branch }}
+      - name: Build
         run: |
           npm install
           sh ${{ matrix.script }}
-      - name: Push to Github pages branch
+      - name: Push to ${{ matrix.branch }} branch
         env:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TARGET_BRANCH: ${{ matrix.branch }}
