@@ -6,8 +6,19 @@ on:
       - master
 
 jobs:
-  build-and-push-to-gh-pages:
+  build-matrix:
     runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - id: set-matrix
+      run: echo "::set-output name=matrix::[ {\"branch\":\"gh-pages\",\"script\":\"./bin/build-for-gh-pages.sh\"}, {\"branch\":\"heroku\",\"script\":\"./bin/build-for-heroku.sh\"}, {\"branch\":\"static\",\"script\":\"./bin/build-static-site.sh\"} ]"
+
+  build-and-push-static-branches:
+    needs: build-matrix
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: ${{fromJson(needs.build-matrix.outputs.matrix)}}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -15,53 +26,12 @@ jobs:
         uses: actions/setup-node@v2.1.2
         with:
           node-version: 16
-      - name: Build for Github pages
+      - name: Build for ${{ matrix.branch }}
         run: |
           npm install
-          PUBLIC_URL=https://adimoldovan.github.io/web-stubs SUBFOLDER=/web-stubs npm run build
-          touch build/.nojekyll
+          sh ${{ matrix.script }}
       - name: Push to Github pages branch
         env:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TARGET_BRANCH: "gh-pages"
-        run: sh bin/push-build-to-branch.sh
-  build-and-push-to-heroku:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v2.1.2
-        with:
-          node-version: 16
-      - name: Build for Heroku
-        run: |
-          npm install
-          PUBLIC_URL=https://web-stubs.herokuapp.com npm run build
-          cd build
-          echo '{}' > composer.json
-          echo '<?php include_once("home.html"); ?>' > index.php
-          mv index.html home.html
-      - name: Push to Heroku branch
-        env:
-          TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TARGET_BRANCH: "heroku"
-        run: sh bin/push-build-to-branch.sh
-  build-and-push-to-static:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v2.1.2
-        with:
-          node-version: 16
-      - name: Build static
-        run: |
-          npm install
-          npm run build
-      - name: Push to static branch
-        env:
-          TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TARGET_BRANCH: "static"
+          TARGET_BRANCH: ${{ matrix.branch }}
         run: sh bin/push-build-to-branch.sh
