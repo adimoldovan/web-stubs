@@ -4,32 +4,41 @@
 	import { createForm } from 'svelte-forms-lib';
 	import { setCookie } from '../utils/utils.js';
 
-	const { form, errors, state, handleChange, handleSubmit } = createForm({
+	let errorMessage;
+
+	const { form, errors, state, handleChange, handleSubmit, handleReset } = createForm({
 		initialValues: {
 			username: '',
 			password: ''
 		},
 		validate: values => {
 			let errs = {};
+			errorMessage = '';
 			if (values.username === '') {
 				errs['username'] = 'Please enter your username';
 			}
 			if (values.password === '') {
 				errs['password'] = 'Please enter your password';
 			}
+
 			return errs;
 		},
+
 		onSubmit: values => {
-			const user = users.filter(u => u.username === values.username)[0];
-			if (user && user.password === values.password) {
-				console.log('Success');
-				setCookie('auth', user.username, 30);
+			if (validCredentials(values)) {
+				setCookie('auth', values.username, 30);
 				location.pathname = '/';
 			} else {
-				console.log('Sign in failed');
+				handleReset();
+				errorMessage = 'Invalid username or password!';
 			}
 		}
 	});
+
+	function validCredentials(values) {
+		const user = users.filter(u => u.username === values.username)[0];
+		return (user && user.password === values.password);
+	}
 </script>
 
 <style>
@@ -49,6 +58,9 @@
 	<Col lg='4'>
 		<div class='form-container'>
 			<Form on:submit={handleSubmit}>
+				{#if errorMessage}
+					<small class='form-error'>{errorMessage}</small>
+				{/if}
 				<FormGroup>
 					<Label for='username'>Username</Label>
 					<InputGroup>
@@ -65,7 +77,7 @@
 									 bind:value={$form.username} />
 					</InputGroup>
 					{#if $errors.username}
-						<small>{$errors.username}</small>
+						<small class='form-error'>{$errors.username}</small>
 					{/if}
 				</FormGroup>
 				<FormGroup>
@@ -84,7 +96,7 @@
 									 bind:value={$form.password} />
 					</InputGroup>
 					{#if $errors.password}
-						<small>{$errors.password}</small>
+						<small class='form-error'>{$errors.password}</small>
 					{/if}
 				</FormGroup>
 				<FormGroup>

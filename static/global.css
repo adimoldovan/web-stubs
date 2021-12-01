@@ -93,3 +93,7 @@ h1 {
         padding-left: 20px;
     }
 }
+
+.form-error {
+    color: red;
+}
