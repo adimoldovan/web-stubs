@@ -22,8 +22,6 @@ jobs:
       - name: Push to Github pages branch
         env:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          EMAIL: "github-actions-bot-noreply@noreply"
-          USERNAME: "github-actions-bot"
           TARGET_BRANCH: "gh-pages"
         run: sh bin/push-build-to-branch.sh
   build-and-push-to-heroku:
@@ -46,8 +44,6 @@ jobs:
       - name: Push to Heroku branch
         env:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          EMAIL: "github-actions-bot-noreply@noreply"
-          USERNAME: "github-actions-bot"
           TARGET_BRANCH: "heroku"
         run: sh bin/push-build-to-branch.sh
   build-and-push-to-static:
@@ -66,7 +62,5 @@ jobs:
       - name: Push to static branch
         env:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          EMAIL: "github-actions-bot-noreply@noreply"
-          USERNAME: "github-actions-bot"
           TARGET_BRANCH: "static"
         run: sh bin/push-build-to-branch.sh
