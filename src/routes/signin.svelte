@@ -1,18 +1,35 @@
 <script>
 	import { Button, Col, Form, FormGroup, Input, InputGroup, InputGroupText, Label, Row } from 'sveltestrap';
 	import users from '../data/users.json';
+	import { createForm } from 'svelte-forms-lib';
+	import { setCookie } from '../utils/utils.js';
 
-	function handleSubmit(e) {
-		e.preventDefault()
-
-		if(isFormValid()) {
-
+	const { form, errors, state, handleChange, handleSubmit } = createForm({
+		initialValues: {
+			username: '',
+			password: ''
+		},
+		validate: values => {
+			let errs = {};
+			if (values.username === '') {
+				errs['username'] = 'Please enter your username';
+			}
+			if (values.password === '') {
+				errs['password'] = 'Please enter your password';
+			}
+			return errs;
+		},
+		onSubmit: values => {
+			const user = users.filter(u => u.username === values.username)[0];
+			if (user && user.password === values.password) {
+				console.log('Success');
+				setCookie('auth', user.username, 30);
+				location.pathname = '/';
+			} else {
+				console.log('Sign in failed');
+			}
 		}
-	}
-
-	function isFormValid() {
-
-	}
+	});
 </script>
 
 <style>
@@ -22,14 +39,16 @@
 </style>
 
 <h1>Sign in</h1>
-<p class='page-description'>Valid credentials: {#each users as user}[{user.username}/{user.password}] {/each}</p>
+<p class='page-description'>Valid credentials:
+	{#each users as user}[{user.username}/{user.password}]{/each}
+</p>
 <p>
 	<Col>No account yet? Register one <a href='/signup'>here</a></Col>
 </p>
 <Row>
 	<Col lg='4'>
 		<div class='form-container'>
-			<Form>
+			<Form on:submit={handleSubmit}>
 				<FormGroup>
 					<Label for='username'>Username</Label>
 					<InputGroup>
@@ -40,8 +59,16 @@
 									d='M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z' />
 							</svg>
 						</InputGroupText>
-						<Input id='username' />
+						<Input id='username'
+									 on:change={handleChange}
+									 on:blur={handleChange}
+									 bind:value={$form.username} />
 					</InputGroup>
+					{#if $errors.username}
+						<small>{$errors.username}</small>
+					{/if}
+				</FormGroup>
+				<FormGroup>
 					<Label for='password'>Password</Label>
 					<InputGroup>
 						<InputGroupText>
@@ -51,13 +78,19 @@
 								<path d='M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z' />
 							</svg>
 						</InputGroupText>
-						<Input id='password' type='password' />
+						<Input id='password' type='password'
+									 on:change={handleChange}
+									 on:blur={handleChange}
+									 bind:value={$form.password} />
 					</InputGroup>
+					{#if $errors.password}
+						<small>{$errors.password}</small>
+					{/if}
 				</FormGroup>
 				<FormGroup>
 					<Input id='remember' type='checkbox' label='Remember me' />
 				</FormGroup>
-				<Button color='primary' on:click={handleSubmit}>Sign in</Button>
+				<Button color='primary'>Sign in</Button>
 			</Form>
 		</div>
 	</Col>

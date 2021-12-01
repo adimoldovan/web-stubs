@@ -1,5 +1,6 @@
 <script>
 	import { Button, ButtonGroup, Col, Row } from 'sveltestrap';
+	import { getCookie, getValueFromCookie } from '../utils/utils.js';
 
 	let cookieValue;
 	const cookieName = 'gibberish';
@@ -25,18 +26,8 @@
 	}
 
 	function getCookieValue() {
-		let name = cookieName + '=';
-		let ca = document.cookie.split(';');
-		for (let i = 0; i < ca.length; i++) {
-			let c = ca[i];
-			while (c.charAt(0) === ' ') {
-				c = c.substring(1);
-			}
-			if (c.indexOf(name) === 0) {
-				return c.substring(name.length, c.length);
-			}
-		}
-		return '';
+		const cookieValue = getValueFromCookie(getCookie(cookieName));
+		return cookieValue ? cookieValue : '';
 	}
 
 	function update(shouldDelete) {
@@ -48,9 +39,9 @@
 	}
 </script>
 <style>
-	#cookie-value {
-			font-size: 2rem;
-	}
+    #cookie-value {
+        font-size: 2rem;
+    }
 </style>
 
 <h1>The gibberish talking cookie</h1>
