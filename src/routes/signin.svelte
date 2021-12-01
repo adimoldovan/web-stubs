@@ -4,11 +4,12 @@
 	import { createForm } from 'svelte-forms-lib';
 	import { getCookie, setCookie } from '../utils/utils.js';
 	import { onMount } from 'svelte';
+	import { base } from '$app/paths';
 
 	onMount(() => {
 		const userCookie = getCookie('auth');
-		if(userCookie) {
-			location.pathname = '/';
+		if (userCookie) {
+			location.pathname = `${base}/`;
 		}
 	});
 
@@ -35,7 +36,7 @@
 		onSubmit: values => {
 			if (validCredentials(values)) {
 				setCookie('auth', values.user, 2);
-				location.pathname = '/';
+				location.pathname = `${base}/`;
 			} else {
 				handleReset();
 				errorMessage = 'Invalid username or password!';
@@ -60,7 +61,7 @@
 	{#each users as user}[{user.username}/{user.password}]{/each}
 </p>
 <p>
-	<Col>No account yet? Register one <a href='/signup'>here</a></Col>
+	<Col>No account yet? Register one <a href='{base}/signup'>here</a></Col>
 </p>
 <Row>
 	<Col lg='4'>

@@ -4,7 +4,11 @@ import adapter from '@sveltejs/adapter-static';
 const config = {
 	kit: {
 		adapter: adapter(),
-		target: '#svelte'
+		target: '#svelte',
+		paths: {
+			base: process.env.SUBFOLDER ? process.env.SUBFOLDER : '',
+			assets: process.env.PUBLIC_URL ? process.env.PUBLIC_URL : ''
+		}
 	}
 };
 

@@ -3,6 +3,7 @@
 	import appVersion from '../data/app-version.json';
 	import { onMount } from 'svelte';
 	import { getCookie } from '../utils/utils.js';
+	import { base } from '$app/paths';
 
 	let userCookie;
 
@@ -20,7 +21,7 @@
 </Col>
 <Col>
 	<div class='header-right'>
-		<a href={userCookie ? '/signout' : '/signin'}>
+		<a href={userCookie ? `${base}/signout` : `${base}/signin`}>
 			<h2>
 				<Icon name={userCookie ? 'box-arrow-right' : 'box-arrow-in-right'} class='text-dark' />
 			</h2>

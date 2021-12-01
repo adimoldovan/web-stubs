@@ -18,7 +18,7 @@ jobs:
       - name: Build for Github pages
         run: |
           npm install
-          PUBLIC_URL=https://adimoldovan.github.io/web-stubs npm run build
+          PUBLIC_URL=https://adimoldovan.github.io/web-stubs SUBFOLDER=/web-stubs npm run build
       - name: Push to Github pages branch
         env:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}

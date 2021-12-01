@@ -3,8 +3,7 @@
 		Container, Row
 	} from 'sveltestrap';
 	import Header from './header.svelte';
-
-
+	import { base } from '$app/paths';
 </script>
 
 <Container fluid>
@@ -13,12 +12,12 @@
 	</Row>
 	<Row class='main'>
 		<div class='sidebar'>
-			<a href='/alerts'>Alerts</a>
-			<a href='/cookie'>Cookie</a>
-			<a href='/hover'>Hover</a>
-			<a href='/interceptor'>Click intercepted</a>
-			<a href='/modal'>Modal</a>
-			<a href='/wait'>Wait</a>
+			<a href='{base}/alerts'>Alerts</a>
+			<a href='{base}/cookie'>Cookie</a>
+			<a href='{base}/hover'>Hover</a>
+			<a href='{base}/interceptor'>Click intercepted</a>
+			<a href='{base}/modal'>Modal</a>
+			<a href='{base}/wait'>Wait</a>
 			<a href='https://github.com/adimoldovan/web-stubs' target='_blank'>
 				<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'>
 					<path
