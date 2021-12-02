@@ -6,6 +6,12 @@
 	import { base } from '$app/paths';
 </script>
 
+<svelte:head>
+	<link rel='stylesheet' href='{base}/global.css'>
+	<link rel='icon' href='{base}/favicon.ico' />
+</svelte:head>
+
+
 <Container fluid>
 	<Row class='header sticky-top'>
 		<Header />
