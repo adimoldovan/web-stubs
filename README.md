@@ -1,6 +1,6 @@
 # Web-stubs
 
-Collection of web components for test automation practice.
+Collection of web components for test automation demos.
 
 | Github pages | Vercel | Netlify | Render |
 | --- | --- | --- | --- |
