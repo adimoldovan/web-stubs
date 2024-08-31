@@ -2,11 +2,11 @@ name: Build and push to static branch
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ 'master' ]
   workflow_dispatch:
 
 concurrency:
-  group: "build"
+  group: 'build'
   cancel-in-progress: true
 
 jobs:
@@ -20,13 +20,13 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: '20'
 
       - name: Install dependencies
         run: npm ci
 
       - name: Build
-        run: | 
+        run: |
           npm run build
           touch dist/.nojekyll
 
@@ -34,6 +34,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           path: ./dist
+          name: dist
 
   push-static:
     name: 'Push to static branch'
