@@ -39,4 +39,4 @@ jobs:
         env:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TARGET_BRANCH: ${{ matrix.branch }}
-        run: sh bin/push-build-to-branch.sh
+        run: sh ./.github/scripts/push-build-to-branch.sh
