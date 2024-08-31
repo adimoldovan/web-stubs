@@ -3,6 +3,8 @@ name: Build and push to static branch
 on:
   push:
     branches: [ 'master' ]
+    paths-ignore:
+      - './.github/workflows/release.yml'
   workflow_dispatch:
 
 concurrency:
@@ -62,7 +64,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Update the bleeding-edge tag
+      - name: Update the latest tag
         run: |
           git tag -f latest
           git push origin latest --force
