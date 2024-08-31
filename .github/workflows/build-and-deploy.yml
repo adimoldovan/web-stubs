@@ -53,3 +53,42 @@ jobs:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TARGET_BRANCH: 'static'
         run: npm run push-static
+
+  update-bleeding-edge:
+    name: 'Update bleeding-edge release'
+    runs-on: ubuntu-latest
+    needs: push-static
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+
+      - name: Update the bleeding-edge tag
+        run: |
+          git tag -f bleeding-edge
+          git push origin bleeding-edge --force
+
+      - name: Create or update bleeding-edge release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: bleeding-edge
+          release_name: bleeding-edge
+          draft: false
+          prerelease: true
+
+      - name: Upload dist to release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./dist
+          asset_name: dist.zip
+          asset_content_type: application/zip
