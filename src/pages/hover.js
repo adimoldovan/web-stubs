@@ -1,11 +1,8 @@
 import './hover.css';
+import { getDefaultContainer } from '../utils/utils';
 
-export default function hover() {
-	const container = document.createElement('div');
-
-	const title = document.createElement('h1');
-	title.textContent = 'Hover';
-	container.appendChild(title);
+export default function main() {
+	const container = getDefaultContainer('Hover');
 
 	const result = document.createElement('p');
 	result.id = 'result';
@@ -13,11 +10,12 @@ export default function hover() {
 	container.appendChild(result);
 
 	const row = document.createElement('div');
-	row.classList.add('row', 'dropdown');
+	row.classList.add('dropdown');
 	container.appendChild(row);
 
 	const button = document.createElement('button');
 	button.textContent = 'Hover me';
+	row.classList.add('actionBtn');
 	row.appendChild(button);
 
 	const dropdownContent = document.createElement('div');

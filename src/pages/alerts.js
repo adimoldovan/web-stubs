@@ -1,3 +1,5 @@
+import { getDefaultContainer } from '../utils/utils';
+
 const buttons = [
 	{
 		id: 'alert-trigger',
@@ -35,10 +37,8 @@ function showPrompt() {
 }
 
 export default function alerts() {
-	const container = document.createElement('div');
-	const title = document.createElement('h1');
-	title.textContent = 'Alerts';
-	container.appendChild(title);
+	const container = getDefaultContainer('Alerts');
+
 	for (const button of buttons) {
 		const buttonElement = document.createElement('button');
 		buttonElement.id = button.id;

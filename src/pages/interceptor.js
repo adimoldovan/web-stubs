@@ -1,11 +1,8 @@
 import './interceptor.css';
+import { getDefaultContainer } from '../utils/utils';
 
 export default function interceptor() {
-	const container = document.createElement('div');
-
-	const title = document.createElement('h1');
-	title.textContent = 'Click intercepted';
-	container.appendChild(title);
+	const container = getDefaultContainer('Click intercepted');
 
 	const content = document.createElement('div');
 	content.classList.add('interceptor-content');
