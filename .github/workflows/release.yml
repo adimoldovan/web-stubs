@@ -20,10 +20,16 @@ jobs:
         with:
           ref: 'latest'
 
-      - name: 'Create the release tag'
-        run: |
-          git tag -f $VERSION
-          git push origin $VERSION --force
+      - name: 'Create tag'
+        uses: actions/github-script@v5
+        with:
+          script: |
+            github.rest.git.createRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: 'refs/tags/$VERSION',
+              sha: context.sha
+            })
 
       - name: 'Create the release'
         uses: elgohr/Github-Release-Action@v5
