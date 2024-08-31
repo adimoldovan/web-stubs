@@ -26,9 +26,7 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: |
-          npm run build
-          touch dist/.nojekyll
+        run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -54,4 +52,4 @@ jobs:
         env:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TARGET_BRANCH: 'static'
-        run: ./.github/scripts/push-build-to-branch.sh
+        run: npm run push-static
