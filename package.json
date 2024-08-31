@@ -1,6 +1,6 @@
 {
 	"name": "web-stubs",
-	"version": "3.0.0",
+	"version": "4.0",
 	"description": "A collection of web elements and pages useful to demo test automation capabilities and skills.",
 	"repository": {
 		"type": "git",
