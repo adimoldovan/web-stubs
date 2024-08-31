@@ -24,7 +24,7 @@ npm run start
 
 # Using Docker
 
-### Public image
+### Public image (not updated automatically, it might be outdated)
 
 ```sh
 # Run the container
