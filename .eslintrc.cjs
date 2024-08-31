@@ -1,8 +1,8 @@
 module.exports = {
 	root: true,
 	extends: ['eslint:recommended', 'prettier'],
-	plugins: ['svelte3'],
-	overrides: [{ files: ['*.svelte'], processor: 'svelte3/svelte3' }],
+	plugins: [],
+	overrides: [],
 	parserOptions: {
 		sourceType: 'module',
 		ecmaVersion: 2019
@@ -11,5 +11,6 @@ module.exports = {
 		browser: true,
 		es2017: true,
 		node: true
-	}
+	},
+	ignorePatterns: ['dist/']
 };

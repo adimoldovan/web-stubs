@@ -15,23 +15,4 @@ export function getValueFromCookie(cookie) {
 	return cookie ? cookie.split('=')[1].trim() : undefined;
 }
 
-export function getActiveUserSession() {
-	const userCookie = getCookie('auth');
-	return getValueFromCookie(userCookie);
-}
-
-export function goHome() {
-	window.location.href = '/';
-}
-
-export function createSession(username) {
-	setCookie('auth', username, 200);
-	goHome();
-}
-
-export function logout() {
-	setCookie('auth', '', -1);
-	goHome();
-}
-
 export class omCookie {}
