@@ -13,7 +13,7 @@ jobs:
     steps:
       - id: set-matrix
         run: |
-          MATRIX='[{"branch":"gh-pages","script":"./bin/build-for-gh-pages.sh"},{"branch":"static","script":"./bin/build-static-site.sh"}]'
+          MATRIX='[{"branch":"gh-pages","script":"./github/scripts/build-for-gh-pages.sh"},{"branch":"static","script":"./github/scripts/build-static-site.sh"}]'
           echo $MATRIX
           echo "::set-output name=matrix::$MATRIX"
 
@@ -33,7 +33,7 @@ jobs:
           node-version: 18
       - name: Build
         run: |
-          npm install
+          npm install --frozen-lockfile
           sh ${{ matrix.script }}
       - name: Push to ${{ matrix.branch }} branch
         env:
