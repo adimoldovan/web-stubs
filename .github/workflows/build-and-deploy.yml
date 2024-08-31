@@ -53,5 +53,5 @@ jobs:
       - name: Push to static branch
         env:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TARGET_BRANCH: ${{ matrix.branch }}
+          TARGET_BRANCH: 'static'
         run: ./.github/scripts/push-build-to-branch.sh
