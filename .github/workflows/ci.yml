@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [ 'master' ]
+    branches: [ 'trunk' ]
     paths-ignore:
       - '.github/workflows/release.yml'
       - '**.md'
