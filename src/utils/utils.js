@@ -35,4 +35,18 @@ export function logout() {
 	goHome();
 }
 
+export function getBaseUrl() {
+  const url = new URL(window.location.href);
+  return `${url.protocol}//${url.host}`;
+}
+
+export function getDefaultContainer(heading) {
+	const container = document.createElement('div');
+	container.classList.add('container');
+	const title = document.createElement('h1');
+	title.textContent = heading;
+	container.appendChild(title);
+	return container;
+}
+
 export class omCookie {}

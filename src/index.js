@@ -49,7 +49,6 @@ const routes = {
 		content: signup
 	},
 	signout: {
-		linkLabel: 'Sign out',
 		content: signout
 	}
 };

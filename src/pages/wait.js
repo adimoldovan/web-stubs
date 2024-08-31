@@ -1,4 +1,5 @@
 import './wait.css';
+import { getDefaultContainer } from '../utils/utils';
 
 function calculateTheAnswer() {
 	return new Promise((resolve) => {
@@ -11,23 +12,11 @@ function calculateTheAnswer() {
 }
 
 export default function wait() {
-	const container = document.createElement('div');
-
-	const title = document.createElement('h1');
-	title.textContent = 'Wait';
-	container.appendChild(title);
-
-	const row = document.createElement('div');
-	row.classList.add('row');
-	container.appendChild(row);
-
-	const col = document.createElement('div');
-	col.classList.add('col');
-	row.appendChild(col);
+	const container = getDefaultContainer('Wait');
 
 	const answerParagraph = document.createElement('p');
 	answerParagraph.classList.add('answer');
-	col.appendChild(answerParagraph);
+	container.appendChild(answerParagraph);
 
 	const button = document.createElement('button');
 	button.id = 'answer-trigger';
@@ -38,7 +27,7 @@ export default function wait() {
 		answerParagraph.textContent = await calculateTheAnswer();
 		button.classList.remove('hidden');
 	});
-	col.appendChild(button);
+	container.appendChild(button);
 
 	return container;
 }

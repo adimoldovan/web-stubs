@@ -1,3 +1,7 @@
+.actionBtn {
+	margin-bottom: 200px;
+}
+
 .dropdown {
 	position: relative;
 	display: inline-block;
@@ -14,11 +18,11 @@
 .dropdown-content div {
 	cursor: pointer;
 	width: 100%;
-	padding: 6px 0 6px 0;
+	padding: 16px 0 6px 0;
 }
 
 .dropdown-content div:hover {
-	background-color: #ddd;
+	opacity: 0.8;
 }
 
 .dropdown:hover .dropdown-content {

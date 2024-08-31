@@ -8,12 +8,11 @@ export default function home() {
 	const title = document.createElement('h1');
 	title.textContent = `Welcome to web-stubs, ${userWithActiveSession ? userWithActiveSession : 'guest'}!`;
 
-	if (userWithActiveSession) {
-		const signOut = document.createElement('a');
-		signOut.textContent = 'Sign out';
-		signOut.href = '?page=signout';
-		title.appendChild(signOut);
-	}
+	const action = document.createElement('a');
+	action.classList.add('signInLink');
+	action.textContent = userWithActiveSession ? 'Sign out' : 'Sign in';
+	action.href = userWithActiveSession ? '?page=signout' : '?page=login';
+	title.appendChild(action);
 
 	container.appendChild(title);
 

@@ -1,11 +1,8 @@
 import './modal.css';
+import { getDefaultContainer } from '../utils/utils';
 
 export default function modal() {
-	const container = document.createElement('div');
-
-	const title = document.createElement('h1');
-	title.textContent = 'Modal';
-	container.appendChild(title);
+	const container = getDefaultContainer('Modal');
 
 	const modalContainer = document.createElement('div');
 	container.appendChild(modalContainer);
@@ -42,7 +39,7 @@ export default function modal() {
 	modalContent.appendChild(modalFooter);
 
 	const cancelButton = document.createElement('button');
-	cancelButton.classList.add('btn', 'btn-secondary');
+	cancelButton.classList.add('neutral');
 	cancelButton.textContent = 'Cancel';
 	modalFooter.appendChild(cancelButton);
 
