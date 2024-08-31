@@ -10,7 +10,7 @@ Collection of web components for test automation practice.
 
 ```sh
 npm install
-npm run dev
+npm run start
 ```
 
 # Using Docker
@@ -18,12 +18,22 @@ npm run dev
 ### Public image
 
 ```sh
+# Run the container
 docker run -d --name web-stubs -p 4999:80 adimoldovan/web-stubs
+
+# Access the application
+http://localhost:4999/
 ```
 
 ### Build your own image
 
 ```sh
+# Build the image
 docker build -t web-stubs .
+
+# Run the container
 docker run -d -p 4999:80 --name web-stubs web-stubs
+
+# Access the application
+http://localhost:4999/
 ```
