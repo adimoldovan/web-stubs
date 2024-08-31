@@ -13,10 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     env:
       VERSION: ${{ inputs.version }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        ref: 'latest'
+        with:
+          ref: 'latest'
 
       - name: 'Create the release tag'
         run: |
