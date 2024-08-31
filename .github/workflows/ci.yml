@@ -1,4 +1,4 @@
-name: Build and push to static branch
+name: CI
 
 on:
   push:
@@ -57,7 +57,7 @@ jobs:
         run: npm run push-static
 
   update-latest:
-    name: 'Update the latest release'
+    name: 'Push to latest tag'
     runs-on: ubuntu-latest
     needs: push-static
     steps:
