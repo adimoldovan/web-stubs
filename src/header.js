@@ -1,14 +1,22 @@
 import './style.css';
 import icons from './icons';
+import { getBaseUrl } from './utils/utils';
 
 export function getHeader(routes) {
-	const header = document.createElement('header');
-	const img = document.createElement('img');
-	img.src = icons['puzzle.svg'];
-	img.alt = 'puzzle';
-	header.appendChild(img);
-	header.appendChild(getNav(routes));
-	return header;
+  const header = document.createElement('header');
+
+  const link = document.createElement('a');
+  link.href = getBaseUrl();
+
+  const img = document.createElement('img');
+  img.src = icons['puzzle.svg'];
+  img.alt = 'puzzle';
+  img.classList.add('logo');
+
+  link.appendChild(img);
+  header.appendChild(link);
+  header.appendChild(getNav(routes));
+  return header;
 }
 
 function getNav(routes) {
