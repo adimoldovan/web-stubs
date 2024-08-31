@@ -10,7 +10,7 @@ on:
 
 jobs:
   release:
-    name: 'Release version ${{ env.VERSION }}'
+    name: 'Release version ${{ inputs.version }}'
     runs-on: ubuntu-latest
     env:
       VERSION: ${{ inputs.version }}
