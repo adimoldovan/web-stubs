@@ -64,5 +64,5 @@ jobs:
 
       - name: Update the bleeding-edge tag
         run: |
-          git tag -f bleeding-edge
-          git push origin bleeding-edge --force
+          git tag -f latest
+          git push origin latest --force
