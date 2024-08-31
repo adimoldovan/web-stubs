@@ -67,28 +67,22 @@ jobs:
         with:
           name: dist
 
+      - name: Create release package
+        run: zip -r dist.zip dist
+
+      - name: Update bleeding-edge release
+        uses: WebFreak001/deploy-nightly@v3.1.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: https://uploads.github.com/repos/${{ github.repository }}/releases/172897360/assets{?name,label}
+          release_id: 172897360
+          asset_path: dist.zip
+          asset_name: dist.zip
+          asset_content_type: application/zip
+          max_releases: 1
+
       - name: Update the bleeding-edge tag
         run: |
           git tag -f bleeding-edge
           git push origin bleeding-edge --force
-
-      - name: Create or update bleeding-edge release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: bleeding-edge
-          release_name: bleeding-edge
-          draft: false
-          prerelease: true
-
-      - name: Upload dist to release
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./dist
-          asset_name: dist.zip
-          asset_content_type: application/zip
