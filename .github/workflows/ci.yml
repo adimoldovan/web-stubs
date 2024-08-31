@@ -5,6 +5,7 @@ on:
     branches: [ 'master' ]
     paths-ignore:
       - '.github/workflows/release.yml'
+      - '**.md'
   workflow_dispatch:
 
 concurrency:
