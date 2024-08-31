@@ -18,11 +18,11 @@ jobs:
           echo "::set-output name=matrix::$MATRIX"
 
   build-and-push-static-branches:
-    name: "Build ${{ matrix.branch }} branch"
+    name: 'Build ${{ matrix.branch }} branch'
     needs: build-matrix
     runs-on: ubuntu-latest
     strategy:
-      matrix: 
+      matrix:
         include: ${{ fromJson( needs.build-matrix.outputs.matrix ) }}
     steps:
       - name: Checkout

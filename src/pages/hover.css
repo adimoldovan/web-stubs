@@ -1,0 +1,35 @@
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+	padding: 0;
+	z-index: 1;
+}
+
+.dropdown-content div {
+	cursor: pointer;
+	width: 100%;
+	padding: 6px 0 6px 0;
+}
+
+.dropdown-content div:hover {
+	background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+#result {
+	text-align: center;
+}
+
+.clicked {
+	font-weight: bolder;
+	text-decoration: underline;
+}

@@ -1,0 +1,74 @@
+:root {
+	--font-color: #333;
+	--bg-color: #333;
+	--contrast-color: #f5f5f5;
+	--borders-color: #bfbfbf;
+}
+
+body {
+	font-family: -apple-system, 'system-ui', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+	color: var(--font-color);
+	text-align: center;
+}
+
+main {
+	margin: 1px auto;
+}
+
+header {
+	margin: 0 auto;
+	max-width: 912px;
+	padding-bottom: 1vh;
+	padding-top: 1vh;
+	border-bottom: var(--borders-color) 1px solid;
+}
+
+.container {
+	margin: 0 auto;
+	padding-top: 1vh;
+}
+
+.nav-bar {
+	display: flex;
+	justify-content: space-around;
+	/*background-color: var(--bg-color);*/
+	padding: 1rem;
+}
+
+.nav-link {
+	color: var(--font-color);
+	text-decoration: none;
+	padding: 0.5rem 1rem;
+	border-radius: 4px;
+	transition: background-color 0.3s;
+}
+
+.nav-link:hover {
+	background-color: var(--borders-color);
+}
+
+footer {
+	margin: 0 auto;
+	max-width: 912px;
+	padding-bottom: 1vh;
+	padding-top: 1vh;
+	text-align: center;
+	border-top: var(--borders-color) 1px solid;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	color: var(--borders-color);
+}
+
+.footer-source {
+	text-align: center;
+	color: var(--borders-color);
+}
+
+.footer-source > a {
+	color: var(--borders-color);
+}
+
+footer > div {
+	flex: 50%;
+}
