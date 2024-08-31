@@ -8,11 +8,11 @@ on:
         required: true
 
 jobs:
-  env:
-    VERSION: ${{ inputs.version }}
-  build:
+  release:
     name: 'Release new version'
     runs-on: ubuntu-latest
+    env:
+      VERSION: ${{ inputs.version }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
