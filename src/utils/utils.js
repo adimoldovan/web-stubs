@@ -21,7 +21,8 @@ export function getActiveUserSession() {
 }
 
 export function goHome() {
-	window.location.href = '/';
+	window.location.pathname = '/';
+	window.location.search = '';
 }
 
 export function createSession(username) {
