@@ -19,7 +19,7 @@ if [ -z "$USERNAME" ]; then
 fi
 
 if [ -z "$BUILD_DIR" ]; then
-  BUILD_DIR="build"
+  BUILD_DIR="dist"
   echo "BUILD_DIR not provided. Defaulting to $BUILD_DIR"
 fi
 
